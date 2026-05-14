@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.OpenApi;
+using TodoAPI.src.Repo;
 
 public class Program
 {
@@ -12,6 +13,7 @@ public class Program
 
         var app = builder.Build();
 
+        builder.Services.AddDataAcces();
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
