@@ -1,16 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoAPI.src.Entities;
 
-namespace TodoAPI.src.Repo.TaskRepo
+namespace TodoAPI.src.Repo
 {
-    public class TaskContext(DbContextOptions<TaskContext> options) : DbContext(options)
+    public class TodoDbContext(DbContextOptions<TodoDbContext> options) : DbContext(options)
     {
         public DbSet<TaskEntity> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TaskEntity>().HasKey(t => t.Id);
-            modelBuilder.Entity<TaskEntity>().Property(t => t.Title).HasMaxLength(140);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TodoDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }

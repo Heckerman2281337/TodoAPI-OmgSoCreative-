@@ -6,8 +6,8 @@ namespace TodoAPI.src.Repo.TaskRepo
     {
         Task<List<TaskEntity>> GetAllAsync();
         Task<TaskEntity?> GetByIdAsync(Guid id);
-        Task CreateAsync(TaskEntity entity);
-        Task UpdateAsync(TaskEntity entity);
+        Task<TaskEntity> CreateAsync(TaskEntity entity);
+        Task<TaskEntity> UpdateAsync(TaskEntity entity);
         Task DeleteAsync(Guid id);
     }
 }
