@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.OpenApi;
 using TodoAPI.src.Repo;
+using Microsoft.EntityFrameworkCore.Design;
 
 public class Program
 {
@@ -9,7 +10,10 @@ public class Program
 
         // Add services to the container.
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services.AddOpenApi();
+        builder.Services
+            .AddOpenApi()
+            .AddDataAcces()
+            .AddControllers();
 
         var app = builder.Build();
 

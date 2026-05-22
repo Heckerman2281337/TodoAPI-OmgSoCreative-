@@ -18,6 +18,6 @@
         public Guid Id { get; private set; }
         public DateTime Created { get; private set; }
         public DateTime? Updated { get; private set; }
-        public bool IsCompleted { get; private set; }
+        public bool? IsCompleted { get; private set; }
     }
 }

@@ -5,12 +5,12 @@ namespace TodoAPI.src.Repo.TaskRepo
 {
     public class TaskRepo : ITaskRepo
     {
-        public TaskRepo(AppContext context)
+        public TaskRepo(TodoDbContext context)
         {
             _context = context;
         }
 
-        private readonly AppContext _context;
+        private readonly TodoDbContext _context;
 
         public async Task<List<TaskEntity>> GetAllAsync()
         {

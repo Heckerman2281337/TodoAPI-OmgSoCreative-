@@ -9,7 +9,9 @@ namespace TodoAPI.src.Controller
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok("Работает!");
+            return Ok("Работает");
         }
+
+    //[HttpPost]
     }
 }

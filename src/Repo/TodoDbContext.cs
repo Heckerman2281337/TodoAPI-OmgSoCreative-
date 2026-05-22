@@ -3,13 +3,13 @@ using TodoAPI.src.Entities;
 
 namespace TodoAPI.src.Repo
 {
-    public class AppContext(DbContextOptions<AppContext> options) : DbContext(options)
+    public class TodoDbContext(DbContextOptions<TodoDbContext> options) : DbContext(options)
     {
         public DbSet<TaskEntity> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TodoDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }
