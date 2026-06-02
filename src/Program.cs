@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.OpenApi;
 using TodoAPI.src.Repo;
 using Microsoft.EntityFrameworkCore.Design;
+using TodoAPI.src.Services;
 
 public class Program
 {
@@ -8,23 +9,22 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder();
 
-        // Add services to the container.
-        // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services
-            .AddOpenApi()
-            .AddDataAcces()
-            .AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+        builder.Services.AddDataAcces();
+        builder.Services.AddBuisnessLogic();
+        builder.Services.AddControllers();
 
         var app = builder.Build();
 
-        builder.Services.AddDataAcces();
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+       /*if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
         }
-
+       */
         app.UseHttpsRedirection();
+        app.UseSwagger();
+        app.UseSwaggerUI();
         app.MapControllers();
         app.Run();
     }

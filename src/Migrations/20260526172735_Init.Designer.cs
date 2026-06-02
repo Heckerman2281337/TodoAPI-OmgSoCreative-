@@ -9,10 +9,10 @@ using TodoAPI.src.Repo;
 
 #nullable disable
 
-namespace TodoAPI.Migrations
+namespace TodoAPI.src.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    [Migration("20260522183352_Init")]
+    [Migration("20260526172735_Init")]
     partial class Init
     {
         /// <inheritdoc />

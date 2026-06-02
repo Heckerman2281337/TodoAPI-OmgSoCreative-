@@ -9,7 +9,7 @@
             Title = title;
             Description = description;
             Id = Guid.NewGuid();
-            Created = DateTime.Now;
+            Created = DateTime.UtcNow;
             IsCompleted = false;
         }
             

@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using TodoAPI.src.Services;
+using TodoAPI.src.DTOs;
 namespace TodoAPI.src.Controller
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class TaskController : ControllerBase
+    [Route(template:"Task")]
+    public class TaskController(ITaskService taskService) : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        public async Task<IActionResult> CreateAsync([FromBody] TaskDTO dto)
         {
-            return Ok("Работает");
+            await taskService.CreateAsync(dto);
+            return Ok();
         }
 
     //[HttpPost]
