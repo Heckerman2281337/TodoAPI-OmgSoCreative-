@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoAPI.src.Entities;
 
-namespace TodoAPI.src.Repo.TaskRepo
+namespace TodoAPI.src.Repo.TaskRepository
 {
     public class TaskRepo : ITaskRepo
     {
@@ -22,9 +22,9 @@ namespace TodoAPI.src.Repo.TaskRepo
             return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
         }
 
-        public async Task<TaskEntity> CreateAsync(TaskEntity entity)
+        public async Task<TaskEntity> CreateAsync(TaskEntity entity, CancellationToken c = default)
         {
-            await _context.Tasks.AddAsync(entity);
+            await _context.Tasks.AddAsync(entity, c);
             await _context.SaveChangesAsync();
             return entity;
         }
