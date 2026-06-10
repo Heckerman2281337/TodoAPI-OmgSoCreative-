@@ -10,7 +10,7 @@ namespace TodoAPI.src.Repo
             serviceCollection.AddScoped<ITaskRepo, TaskRepo>();
             serviceCollection.AddDbContext<TodoDbContext>(x =>
             {
-                x.UseNpgsql(connectionString: "Host=localhost;Database=ToDoDB;Username=postgres;Password=1234");
+                x.UseNpgsql(connectionString: "Host=localhost;Database=ToDoDB;Username=postgres;Password=12345");
             });
             return serviceCollection;
         }
