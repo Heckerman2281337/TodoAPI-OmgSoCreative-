@@ -19,5 +19,12 @@
         public DateTime Created { get; private set; }
         public DateTime? Updated { get; private set; }
         public bool? IsCompleted { get; private set; }
+
+        public void Update(string title, string? description)
+        {
+            Title = title;
+            Description = description;
+            Updated = DateTime.UtcNow;
+        }
     }
 }
