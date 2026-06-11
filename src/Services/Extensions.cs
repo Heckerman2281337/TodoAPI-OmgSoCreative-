@@ -1,4 +1,6 @@
-﻿namespace TodoAPI.src.Services
+﻿using TodoAPI.src.Services.TaskServices;
+
+namespace TodoAPI.src.Services
 {
     public static class Extensions
     {

@@ -13,8 +13,9 @@ namespace TodoAPI.src.Validators
         {
             if (string.IsNullOrWhiteSpace(task.Title))
                 throw new ArgumentException("У задачи должно быть название");
+
             if (task.Title.Length > 140)
-                throw new Exception("Название задачи не должно превышать 140 символов");
+                throw new ArgumentException("Название задачи не должно превышать 140 символов");
         }
     }
 }

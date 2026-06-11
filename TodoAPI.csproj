@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="src\Models\" />
+    <Folder Include="src\Services\UserServices\" />
   </ItemGroup>
 
 </Project>

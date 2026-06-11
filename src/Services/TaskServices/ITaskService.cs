@@ -1,6 +1,6 @@
 ﻿using TodoAPI.src.DTOs;
 using TodoAPI.src.Entities;
-namespace TodoAPI.src.Services
+namespace TodoAPI.src.Services.TaskServices
 {
     public interface ITaskService
     {
