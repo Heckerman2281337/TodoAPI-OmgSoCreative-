@@ -2,7 +2,7 @@
 using TodoAPI.src.Entities;
 using TodoAPI.src.DTOs;
 
-namespace TodoAPI.src.Services
+namespace TodoAPI.src.Services.TaskServices
 {
     public class TaskService(ITaskRepo taskRepository) : ITaskService
     {
