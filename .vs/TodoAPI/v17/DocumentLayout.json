@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\Projects\\TodoList\\TodoAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,12 +19,24 @@
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,18 +75,6 @@
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\taskservices\\itaskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\taskrepository\\taskrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\taskrepository\\taskrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -103,10 +107,6 @@
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\validators\\taskvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\entities\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\entities\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -126,63 +126,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-12T16:41:32.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthExtensions.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthExtensions.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthExtensions.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthExtensions.cs",
               "RelativeToolTip": "src\\Services\\AuthExtensions.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwA8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T16:31:15.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AuthService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\AuthService.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthService\\AuthService.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\AuthService.cs",
               "RelativeToolTip": "src\\Services\\AuthService\\AuthService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAmwAwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T15:29:58.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\IAuthService.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthService\\IAuthService.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\IAuthService.cs",
               "RelativeToolTip": "src\\Services\\AuthService\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T15:28:49.696Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "UpdateUserDTO.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\DTOs\\UpdateUserDTO.cs",
               "RelativeDocumentMoniker": "src\\DTOs\\UpdateUserDTO.cs",
@@ -190,12 +190,11 @@
               "RelativeToolTip": "src\\DTOs\\UpdateUserDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T15:15:17.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T15:15:17.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "UserService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\UserServices\\UserService.cs",
               "RelativeDocumentMoniker": "src\\Services\\UserServices\\UserService.cs",
@@ -203,12 +202,11 @@
               "RelativeToolTip": "src\\Services\\UserServices\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T13:58:22.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T13:58:22.147Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "IUserService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\UserServices\\IUserService.cs",
               "RelativeDocumentMoniker": "src\\Services\\UserServices\\IUserService.cs",
@@ -216,12 +214,11 @@
               "RelativeToolTip": "src\\Services\\UserServices\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T13:58:12.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T13:58:12.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 6,
               "Title": "IUserRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\IUserRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\IUserRepo.cs",
@@ -229,12 +226,11 @@
               "RelativeToolTip": "src\\Repo\\UserRepository\\IUserRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:48:31.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:48:31.222Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 5,
               "Title": "UserConfig.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserConfig.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\UserConfig.cs",
@@ -242,25 +238,24 @@
               "RelativeToolTip": "src\\Repo\\UserRepository\\UserConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:48:37.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:48:37.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "UserRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\UserRepo.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserRepo.cs",
               "RelativeToolTip": "src\\Repo\\UserRepository\\UserRepo.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA2wBkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-11T17:48:45.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "TaskService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\TaskServices\\TaskService.cs",
               "RelativeDocumentMoniker": "src\\Services\\TaskServices\\TaskService.cs",
@@ -268,12 +263,11 @@
               "RelativeToolTip": "src\\Services\\TaskServices\\TaskService.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAiwBYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T16:32:54.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-02T16:32:54.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "RegisterDTO.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\DTOs\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "src\\DTOs\\RegisterDTO.cs",
@@ -281,12 +275,11 @@
               "RelativeToolTip": "src\\DTOs\\RegisterDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:02:29.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:02:29.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "ITaskService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\TaskServices\\ITaskService.cs",
               "RelativeDocumentMoniker": "src\\Services\\TaskServices\\ITaskService.cs",
@@ -294,12 +287,11 @@
               "RelativeToolTip": "src\\Services\\TaskServices\\ITaskService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T16:20:06.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-02T16:20:06.989Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Program.cs",
               "RelativeDocumentMoniker": "src\\Program.cs",
@@ -307,12 +299,11 @@
               "RelativeToolTip": "src\\Program.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T14:09:24.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T14:09:24.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "UserValidator.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Validators\\UserValidator.cs",
               "RelativeDocumentMoniker": "src\\Validators\\UserValidator.cs",
@@ -320,12 +311,11 @@
               "RelativeToolTip": "src\\Validators\\UserValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:11:39.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:11:39.689Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UserEntity.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Entities\\UserEntity.cs",
               "RelativeDocumentMoniker": "src\\Entities\\UserEntity.cs",
@@ -333,12 +323,11 @@
               "RelativeToolTip": "src\\Entities\\UserEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T15:25:53.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T15:25:53.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "TaskRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\TaskRepository\\TaskRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\TaskRepository\\TaskRepo.cs",
@@ -346,12 +335,11 @@
               "RelativeToolTip": "src\\Repo\\TaskRepository\\TaskRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T17:24:49.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T17:24:49.865Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "TaskConfig.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\TaskRepository\\TaskConfig.cs",
               "RelativeDocumentMoniker": "src\\Repo\\TaskRepository\\TaskConfig.cs",
@@ -359,12 +347,11 @@
               "RelativeToolTip": "src\\Repo\\TaskRepository\\TaskConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T17:24:33.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T17:24:33.554Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "ITaskRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\TaskRepository\\ITaskRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\TaskRepository\\ITaskRepo.cs",
@@ -372,12 +359,11 @@
               "RelativeToolTip": "src\\Repo\\TaskRepository\\ITaskRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T17:25:16.818Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T17:25:16.818Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "TodoDbContext.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\TodoDbContext.cs",
               "RelativeDocumentMoniker": "src\\Repo\\TodoDbContext.cs",
@@ -385,12 +371,11 @@
               "RelativeToolTip": "src\\Repo\\TodoDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T17:24:47.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T17:24:47.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "TaskDTO.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\DTOs\\TaskDTO.cs",
               "RelativeDocumentMoniker": "src\\DTOs\\TaskDTO.cs",
@@ -398,12 +383,11 @@
               "RelativeToolTip": "src\\DTOs\\TaskDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T15:06:32.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T15:06:32.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Extensions.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\Extensions.cs",
               "RelativeDocumentMoniker": "src\\Repo\\Extensions.cs",
@@ -411,12 +395,11 @@
               "RelativeToolTip": "src\\Repo\\Extensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T17:14:22.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T17:14:22.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\DTOs\\LoginDTO.cs",
               "RelativeDocumentMoniker": "src\\DTOs\\LoginDTO.cs",
@@ -424,12 +407,11 @@
               "RelativeToolTip": "src\\DTOs\\LoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:51:58.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:51:58.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "TaskValidator.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Validators\\TaskValidator.cs",
               "RelativeDocumentMoniker": "src\\Validators\\TaskValidator.cs",
@@ -437,12 +419,11 @@
               "RelativeToolTip": "src\\Validators\\TaskValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T15:26:20.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T15:26:20.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 7,
               "Title": "AuthController.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Controller\\AuthController.cs",
               "RelativeDocumentMoniker": "src\\Controller\\AuthController.cs",
@@ -450,8 +431,7 @@
               "RelativeToolTip": "src\\Controller\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:19:50.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:19:50.335Z"
             },
             {
               "$type": "Document",
@@ -463,12 +443,11 @@
               "RelativeToolTip": "src\\Entities\\TaskEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T14:59:16.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T14:59:16.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Extensions.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\Extensions.cs",
               "RelativeDocumentMoniker": "src\\Services\\Extensions.cs",
@@ -476,8 +455,7 @@
               "RelativeToolTip": "src\\Services\\Extensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T16:52:49.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-02T16:52:49.324Z"
             },
             {
               "$type": "Document",
@@ -489,8 +467,7 @@
               "RelativeToolTip": "src\\Migrations\\TodoDbContextModelSnapshot.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T17:34:10.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T17:34:10.394Z"
             },
             {
               "$type": "Document",
@@ -502,8 +479,7 @@
               "RelativeToolTip": "src\\Controller\\TaskController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T15:30:24.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T15:30:24.304Z"
             }
           ]
         }
