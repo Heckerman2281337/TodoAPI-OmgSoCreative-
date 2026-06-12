@@ -5,7 +5,7 @@ namespace TodoAPI.src.Controller
 {
     [ApiController]
     [Route(template:"Task")]
-    public class TaskController(ITaskService taskService) : ControllerBase
+    public class TaskController(IUserService taskService) : ControllerBase
     {
         [HttpPost]
         public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDTO dto)

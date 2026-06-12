@@ -1,10 +1,9 @@
 ﻿using TodoAPI.src.Repo.TaskRepository;
 using TodoAPI.src.Entities;
 using TodoAPI.src.DTOs;
-
 namespace TodoAPI.src.Services.TaskServices
 {
-    public class TaskService(ITaskRepo taskRepository) : ITaskService
+    public class UserService(ITaskRepo taskRepository) : IUserService
     {
         public async Task CreateAsync(TaskDTO dto, CancellationToken cancellationToken = default)
         {
@@ -17,7 +16,7 @@ namespace TodoAPI.src.Services.TaskServices
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
 
             if (task is null)
-                throw new Exception("НЕТЬ ТАКОЙ ЗАДЧКИ ТО");
+                throw new Exception("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
 
             return task;
         }
@@ -32,7 +31,7 @@ namespace TodoAPI.src.Services.TaskServices
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
             
             if (task is null)
-                throw new Exception("НЕТЬ ТАКОЙ ЗАДЧКИ ТО");
+                throw new Exception("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
 
             task.Update(dto.Title, dto.Description);
 

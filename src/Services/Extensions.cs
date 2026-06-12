@@ -6,7 +6,7 @@ namespace TodoAPI.src.Services
     {
         public static IServiceCollection AddBuisnessLogic(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<ITaskService, TaskService>(); 
+            serviceCollection.AddScoped<IUserService, UserService>(); 
             return serviceCollection;
         }
     }

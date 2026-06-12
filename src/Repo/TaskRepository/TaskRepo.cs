@@ -29,7 +29,7 @@ namespace TodoAPI.src.Repo.TaskRepository
             return entity;
         }
 
-        public async Task<TaskEntity> UpdateAsync(TaskEntity entity, CancellationToken cancellationToken)
+        public async Task<TaskEntity?> UpdateAsync(TaskEntity entity, CancellationToken cancellationToken)
         {
             _context.Tasks.Update(entity);
             await _context.SaveChangesAsync();
