@@ -2,7 +2,7 @@
 using TodoAPI.src.Entities;
 namespace TodoAPI.src.Services.TaskServices
 {
-    public interface IUserService
+    public interface ITaskService
     {
         Task CreateAsync(TaskDTO dto, CancellationToken cancellationToken = default);
         Task<TaskEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);

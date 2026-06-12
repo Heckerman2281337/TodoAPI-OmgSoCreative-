@@ -36,12 +36,8 @@ namespace TodoAPI.src.Repo.TaskRepository
             return entity;
         }
 
-        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+        public async Task DeleteAsync(TaskEntity entity, CancellationToken cancellationToken)
         {
-            var entity = await _context.Tasks.FirstOrDefaultAsync(x => x.Id == id);
-            if (entity == null)
-                throw new Exception("Такой задачи не существует");
-
             _context.Tasks.Remove(entity);
             await _context.SaveChangesAsync();
         }

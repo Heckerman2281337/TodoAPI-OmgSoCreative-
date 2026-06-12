@@ -1,9 +1,10 @@
 ﻿using TodoAPI.src.Repo.TaskRepository;
 using TodoAPI.src.Entities;
 using TodoAPI.src.DTOs;
+using Microsoft.EntityFrameworkCore;
 namespace TodoAPI.src.Services.TaskServices
 {
-    public class UserService(ITaskRepo taskRepository) : IUserService
+    public class TaskService(ITaskRepo taskRepository) : ITaskService
     {
         public async Task CreateAsync(TaskDTO dto, CancellationToken cancellationToken = default)
         {
@@ -23,7 +24,12 @@ namespace TodoAPI.src.Services.TaskServices
 
         public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            await taskRepository.DeleteAsync(id, cancellationToken);
+            var entity = await taskRepository.GetByIdAsync(id);
+
+            if (entity == null)
+                throw new Exception("Такой задачи не существует");
+
+            await taskRepository.DeleteAsync(entity, cancellationToken);
         }
 
         public async Task UpdateAsync(TaskDTO dto, Guid id, CancellationToken cancellationToken = default)

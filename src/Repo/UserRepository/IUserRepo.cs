@@ -9,6 +9,6 @@ namespace TodoAPI.src.Repo.UserRepository
         Task<UserEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<UserEntity> CreateAsync(UserEntity entity, CancellationToken cancellationToken = default);
         Task<UserEntity?> UpdateAsync(UserEntity entity, CancellationToken cancellationToken = default);
-        Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+        Task DeleteAsync(UserEntity entity, CancellationToken cancellationToken = default);
     }
 }

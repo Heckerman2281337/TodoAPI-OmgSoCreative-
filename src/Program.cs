@@ -11,17 +11,20 @@ public class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddAuth(builder.Configuration);
         builder.Services.AddDataAcces();
         builder.Services.AddBuisnessLogic();
         builder.Services.AddControllers();
 
         var app = builder.Build();
 
-       /*if (app.Environment.IsDevelopment())
-        {
-            app.MapOpenApi();
-        }
-       */
+        /*if (app.Environment.IsDevelopment())
+         {
+             app.MapOpenApi();
+         }
+        */
+        app.UseAuthentication();
+        app.UseAuthorization();
         app.UseHttpsRedirection();
         app.UseSwagger();
         app.UseSwaggerUI();

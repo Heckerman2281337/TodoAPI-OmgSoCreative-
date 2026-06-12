@@ -20,12 +20,8 @@ namespace TodoAPI.src.Repo.UserRepository
             return entity;
         }
 
-        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(UserEntity entity, CancellationToken cancellationToken = default)
         {
-            var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
-            if (entity == null)
-                throw new ArgumentException("Такого пользователя не существует");
-
             _context.Users.Remove(entity);
             await _context.SaveChangesAsync();
         }
@@ -33,20 +29,12 @@ namespace TodoAPI.src.Repo.UserRepository
         public async Task<UserEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
-
-            if(entity == null)
-                throw new ArgumentException("Такого пользователя не существует");
-
             return entity;
         }
 
         public async Task<UserEntity?> GetByUsernameAsync(string username, CancellationToken cancellationToken = default)
         {
             var entity = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
-
-            if (entity == null)
-                throw new ArgumentException("Такого пользователя не существует");
-
             return entity;
         }
 

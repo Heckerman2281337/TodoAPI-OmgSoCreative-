@@ -6,37 +6,49 @@ using BCrypt.Net;
 
 namespace TodoAPI.src.Services.UserServices
 {
-    public class UserService(IUserRepo _userRepository) : IUserService
+    public class UserService(IUserRepo userRepository) : IUserService
     {
         public async Task CreateAsync(RegisterDTO dto, CancellationToken cancellationToken)
         {
-            
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-           
-            var user = new UserEntity(dto.Username, hashedPassword, dto.Email);
-
-            await _userRepository.CreateAsync(user);
-            
+            var entity = new UserEntity(dto.Username, hashedPassword, dto.Email);
+            await userRepository.CreateAsync(entity, cancellationToken); 
         }
 
-        public Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
-            
+            var entity = await userRepository.GetByIdAsync(id, cancellationToken); 
+            if (entity == null)
+                throw new ArgumentException("Такого пользователя нет");
+            await userRepository.DeleteAsync(entity, cancellationToken);
         }
 
-        public Task<UserEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        public async Task<UserEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var entity = await userRepository.GetByIdAsync(id, cancellationToken);
+            if (entity == null)
+                throw new ArgumentException("Такого пользователя нет");
+            return entity;
         }
 
-        public Task<UserEntity?> GetByUsernameAsync(string username, CancellationToken cancellationToken)
+        public async Task<UserEntity?> GetByUsernameAsync(string username, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var entity = await userRepository.GetByUsernameAsync(username, cancellationToken);
+            if (entity == null)
+                throw new ArgumentException("Такого пользователя не существует");
+            return entity;
         }
 
-        public Task UpdateAsync(LoginDTO dto, CancellationToken cancellationToken)
+        public async Task UpdateAsync(UpdateUserDTO dto, Guid id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var user = await userRepository.GetByIdAsync(id, cancellationToken);
+            if (user is null)
+                throw new Exception("Такого пользователя не существует");
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            user.Update(dto.Username, hashedPassword);
+            await userRepository.UpdateAsync(user, cancellationToken);
         }
     }
 }
