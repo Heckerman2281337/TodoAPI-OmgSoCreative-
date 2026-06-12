@@ -17,6 +17,12 @@
         public DateTime UserCreated { get; private set; }
         public Guid UserId { get; private set; }
 
+        public void Update(string username, string password)
+        {
+            Username = username;
+            HashedPassword = password;
+        }
+
     }
 
 }
