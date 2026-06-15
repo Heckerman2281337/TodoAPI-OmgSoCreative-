@@ -21,10 +21,10 @@ namespace TodoAPI.src.Services.AuthService
             if (!BCrypt.Net.BCrypt.Verify(dto.Password, entity.HashedPassword))
                 throw new ArgumentException("Неверный пароль");
 
-            return GenerateJWTToken(entity);
+            return GenerateJWT(entity);
         }
 
-        public string GenerateJWTToken(UserEntity entity)
+        public string GenerateJWT(UserEntity entity)
         {
             var claims = new List<Claim>
             {
@@ -39,7 +39,7 @@ namespace TodoAPI.src.Services.AuthService
             expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(60)),
             signingCredentials: new SigningCredentials
             (
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!)),
                 SecurityAlgorithms.HmacSha256)
             );
 

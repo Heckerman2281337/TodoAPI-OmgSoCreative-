@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "F:\\Projects\\TodoList\\TodoAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,24 +31,8 @@
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\repo\\userrepository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\authextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:src\\services\\authextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|TodoAPI.csproj|f:\\projects\\todolist\\todoapi\\src\\services\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -126,54 +126,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-12T16:41:32.187Z"
+              "WhenOpened": "2026-06-12T16:41:32.187Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "AuthExtensions.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthExtensions.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthExtensions.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthExtensions.cs",
               "RelativeToolTip": "src\\Services\\AuthExtensions.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwA8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T16:31:15.151Z"
+              "WhenOpened": "2026-06-12T16:31:15.151Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AuthService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\AuthService.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthService\\AuthService.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\AuthService.cs",
               "RelativeToolTip": "src\\Services\\AuthService\\AuthService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T15:29:58.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\IAuthService.cs",
               "RelativeDocumentMoniker": "src\\Services\\AuthService\\IAuthService.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Services\\AuthService\\IAuthService.cs",
               "RelativeToolTip": "src\\Services\\AuthService\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T15:28:49.696Z",
               "EditorCaption": ""
@@ -216,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "IUserRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\IUserRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\IUserRepo.cs",
@@ -224,12 +226,11 @@
               "RelativeToolTip": "src\\Repo\\UserRepository\\IUserRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:48:31.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:48:31.222Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "UserConfig.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserConfig.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\UserConfig.cs",
@@ -237,18 +238,17 @@
               "RelativeToolTip": "src\\Repo\\UserRepository\\UserConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:48:37.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:48:37.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UserRepo.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserRepo.cs",
               "RelativeDocumentMoniker": "src\\Repo\\UserRepository\\UserRepo.cs",
               "ToolTip": "F:\\Projects\\TodoList\\TodoAPI\\src\\Repo\\UserRepository\\UserRepo.cs",
               "RelativeToolTip": "src\\Repo\\UserRepository\\UserRepo.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-11T17:48:45.922Z",
               "EditorCaption": ""
@@ -423,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AuthController.cs",
               "DocumentMoniker": "F:\\Projects\\TodoList\\TodoAPI\\src\\Controller\\AuthController.cs",
               "RelativeDocumentMoniker": "src\\Controller\\AuthController.cs",
@@ -431,8 +431,7 @@
               "RelativeToolTip": "src\\Controller\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T17:19:50.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T17:19:50.335Z"
             },
             {
               "$type": "Document",
