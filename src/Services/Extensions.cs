@@ -1,4 +1,5 @@
-﻿using TodoAPI.src.Services.TaskServices;
+﻿using TodoAPI.src.Services.Authentication;
+using TodoAPI.src.Services.TaskServices;
 using TodoAPI.src.Services.UserServices;
 namespace TodoAPI.src.Services
 {
@@ -8,6 +9,7 @@ namespace TodoAPI.src.Services
         {
             serviceCollection.AddScoped<IUserService, UserService>();
             serviceCollection.AddScoped<ITaskService, TaskService>();
+            serviceCollection.AddScoped<IAuthService, AuthService>();
             return serviceCollection;
         }
     }

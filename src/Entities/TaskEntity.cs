@@ -4,11 +4,12 @@
     {
         private TaskEntity(){ Title = null!; }
 
-        public TaskEntity(string title, string description) 
+        public TaskEntity(string title, string description, Guid userId) 
         { 
             Title = title;
             Description = description;
             Id = Guid.NewGuid();
+            UserId = userId;
             Created = DateTime.UtcNow;
             IsCompleted = false;
         }
@@ -19,6 +20,9 @@
         public DateTime Created { get; private set; }
         public DateTime? Updated { get; private set; }
         public bool? IsCompleted { get; private set; }
+        public Guid UserId { get; private set; }
+        public UserEntity User { get; private set; }
+
 
         public void Update(string title, string? description)
         {

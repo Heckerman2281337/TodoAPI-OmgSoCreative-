@@ -1,5 +1,5 @@
 ﻿using TodoAPI.src.DTOs;
-namespace TodoAPI.src.Services.AuthService
+namespace TodoAPI.src.Services.Authentication
 {
     public interface IAuthService
     {

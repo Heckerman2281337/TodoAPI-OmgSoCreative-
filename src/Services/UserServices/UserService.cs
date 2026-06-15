@@ -3,13 +3,15 @@ using TodoAPI.src.Entities;
 using TodoAPI.src.DTOs;
 using BCrypt;
 using BCrypt.Net;
+using TodoAPI.src.Validators;
 
 namespace TodoAPI.src.Services.UserServices
 {
-    public class UserService(IUserRepo userRepository) : IUserService
+    public class UserService(IUserRepo userRepository, IValidator<RegisterDTO> userValidator) : IUserService
     {
         public async Task CreateAsync(RegisterDTO dto, CancellationToken cancellationToken)
         {
+            userValidator.Validate(dto);
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
             var entity = new UserEntity(dto.Username, hashedPassword, dto.Email);
             await userRepository.CreateAsync(entity, cancellationToken); 

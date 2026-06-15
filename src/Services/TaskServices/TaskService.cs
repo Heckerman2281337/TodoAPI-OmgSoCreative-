@@ -1,14 +1,15 @@
 ﻿using TodoAPI.src.Repo.TaskRepository;
 using TodoAPI.src.Entities;
 using TodoAPI.src.DTOs;
-using Microsoft.EntityFrameworkCore;
+using TodoAPI.src.Validators;
 namespace TodoAPI.src.Services.TaskServices
 {
-    public class TaskService(ITaskRepo taskRepository) : ITaskService
+    public class TaskService(ITaskRepo taskRepository, IValidator<TaskDTO> taskValidator) : ITaskService
     {
-        public async Task CreateAsync(TaskDTO dto, CancellationToken cancellationToken = default)
+        public async Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default)
         {
-            var task = new TaskEntity(dto.Title, dto.Description);
+            taskValidator.Validate(dto);
+            var task = new TaskEntity(dto.Title, dto.Description, userId);
             await taskRepository.CreateAsync(task, cancellationToken);
         }
 
@@ -17,7 +18,7 @@ namespace TodoAPI.src.Services.TaskServices
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
 
             if (task is null)
-                throw new Exception("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
+                throw new ArgumentException("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
 
             return task;
         }
@@ -27,21 +28,24 @@ namespace TodoAPI.src.Services.TaskServices
             var entity = await taskRepository.GetByIdAsync(id);
 
             if (entity == null)
-                throw new Exception("Такой задачи не существует");
+                throw new ArgumentException("Такой задачи не существует");
 
             await taskRepository.DeleteAsync(entity, cancellationToken);
         }
 
-        public async Task UpdateAsync(TaskDTO dto, Guid id, CancellationToken cancellationToken = default)
+        public async Task<TaskEntity> UpdateAsync(TaskDTO dto, Guid id, CancellationToken cancellationToken = default)
         {
+            taskValidator.Validate(dto);
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
             
             if (task is null)
-                throw new Exception("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
+                throw new ArgumentException("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
 
             task.Update(dto.Title, dto.Description);
 
             await taskRepository.UpdateAsync(task, cancellationToken); 
+
+            return task;
         }
 
     }

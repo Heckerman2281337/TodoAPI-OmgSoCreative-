@@ -16,6 +16,7 @@
         public string Email { get; private set; }
         public DateTime UserCreated { get; private set; }
         public Guid UserId { get; private set; }
+        public List<TaskEntity> Tasks { get; private set; } = new List<TaskEntity>();
 
         public void Update(string username, string password)
         {

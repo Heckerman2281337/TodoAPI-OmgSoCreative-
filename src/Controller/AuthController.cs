@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TodoAPI.src.DTOs;
-using TodoAPI.src.Services.AuthService;
+using TodoAPI.src.Services.Authentication;
 using TodoAPI.src.Services.UserServices;
 
 namespace TodoAPI.src.Controller
