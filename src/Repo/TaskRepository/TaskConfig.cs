@@ -12,6 +12,11 @@ namespace TodoAPI.src.Repo.TaskRepository
             builder.Property(t => t.Title)
                 .IsRequired()
                 .HasMaxLength(140);
+
+            builder.HasOne(u => u.User)
+                .WithMany(t => t.Tasks)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

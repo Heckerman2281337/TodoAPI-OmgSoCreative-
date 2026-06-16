@@ -3,7 +3,7 @@ using TodoAPI.src.DTOs;
 
 namespace TodoAPI.src.Validators
 {
-    public class UserValidator : IValidator<RegisterDTO>
+    public class UserValidator: IValidator<RegisterDTO>
     {
         //Regex patterns
         private static readonly Regex UsernameRegex = new(@"^[a-zA-Z0-9_]{3,20}$");

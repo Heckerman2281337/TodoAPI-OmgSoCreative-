@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.OpenApi;
 using TodoAPI.src.Repo;
 using Microsoft.EntityFrameworkCore.Design;
 using TodoAPI.src.Services;
+using Microsoft.OpenApi.Models;
+using TodoAPI.src.Middleawares;
 
 public class Program
 {
@@ -10,7 +12,7 @@ public class Program
         var builder = WebApplication.CreateBuilder();
 
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerWithAuth();
         builder.Services.AddAuth(builder.Configuration);
         builder.Services.AddDataAcces();
         builder.Services.AddBuisnessLogic();
@@ -23,6 +25,7 @@ public class Program
              app.MapOpenApi();
          }
         */
+        app.UseMiddleware<ExceptionMiddleware>();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseHttpsRedirection();
