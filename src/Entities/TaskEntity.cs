@@ -21,14 +21,15 @@
         public DateTime? Updated { get; private set; }
         public bool? IsCompleted { get; private set; }
         public Guid UserId { get; private set; }
-        public UserEntity User { get; private set; }
+        public UserEntity? User { get; private set; }
 
 
-        public void Update(string title, string? description)
+        public void Update(string title, string? description, bool? isCompleted)
         {
             Title = title;
             Description = description;
             Updated = DateTime.UtcNow;
+            IsCompleted = isCompleted;
         }
     }
 }

@@ -4,7 +4,7 @@ using TodoAPI.src.Entities;
 
 namespace TodoAPI.src.Repo.UserRepository
 {
-    public class UserRepo : IUserRepo
+    public class UserRepo: IUserRepo
     {
         public UserRepo(TodoDbContext context) 
         { 
@@ -38,7 +38,7 @@ namespace TodoAPI.src.Repo.UserRepository
             return entity;
         }
 
-        public async Task<UserEntity> UpdateAsync(UserEntity entity, CancellationToken cancellationToken = default)
+        public async Task<UserEntity?> UpdateAsync(UserEntity entity, CancellationToken cancellationToken = default)
         {
             _context.Users.Update(entity);
             await _context.SaveChangesAsync();

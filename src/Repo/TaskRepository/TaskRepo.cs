@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoAPI.src.Entities;
+using TodoAPI.src.QuerryParams;
+using TodoAPI.src.QueryParams;
 
 namespace TodoAPI.src.Repo.TaskRepository
 {
@@ -12,9 +14,15 @@ namespace TodoAPI.src.Repo.TaskRepository
 
         private readonly TodoDbContext _context;
 
-        public async Task<List<TaskEntity>> GetAllAsync()
+        public async Task<PagedResult<TaskEntity>> GetAllAsync
+            (Guid userId, TaskFilterParams taskFilter, 
+            TaskSortParams taskSort, TaskPaginationParams taskPagination
+            ,CancellationToken cancellationToken)
         {
-            return await _context.Tasks.ToListAsync();
+            return await _context.Tasks.Where(x => x.UserId == userId)
+                .Filter(taskFilter)
+                .Sort(taskSort)
+                .ToPagedAsync(taskPagination);
         }
 
         public async Task<TaskEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
