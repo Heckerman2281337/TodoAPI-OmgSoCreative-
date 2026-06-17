@@ -21,7 +21,7 @@ REST API for task management with JWT authentication
 ## List of endpoints
 - POST /User/register - user registration
 - POST /User/login - user login, return JWT
-- Endpoint below requires JWT:
+### Endpoint below requires JWT:
 - GET /Task - returns all task for user
 - POST /Task - create task
 - PATCH /Task/{id} - update task by its id
