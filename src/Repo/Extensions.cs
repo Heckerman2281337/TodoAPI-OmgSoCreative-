@@ -11,6 +11,7 @@ namespace TodoAPI.src.Repo
         {
             serviceCollection.AddScoped<ITaskRepo, TaskRepo>();
             serviceCollection.AddScoped<IUserRepo, UserRepo>();
+
             serviceCollection.AddDbContext<TodoDbContext>(x =>
             {
                 x.UseNpgsql(connectionString: "Host=localhost;Database=ToDoDB;Username=postgres;Password=12345");

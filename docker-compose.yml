@@ -1,0 +1,26 @@
+
+services:
+    crud_webapi:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        container_name: to_do_web_api
+        depends_on:
+            - db
+        environment:
+            ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=ToDoDB;Username=postgres;Password=12345"
+    db:
+        image: postgres:17
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: 12345
+        volumes:
+            - db_data:/var/lib/postgresql/data
+        container_name: db_postgresql_container
+        
+volumes:
+    db_data:    

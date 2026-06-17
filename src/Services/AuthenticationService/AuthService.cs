@@ -29,7 +29,8 @@ namespace TodoAPI.src.Services.Authentication
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, entity.UserId.ToString()),
-                new Claim(ClaimTypes.Name, entity.Username)
+                new Claim(ClaimTypes.Name, entity.Username),
+                new Claim("iat", DateTime.UtcNow.ToString())
             };
 
             var jwt = new JwtSecurityToken(
