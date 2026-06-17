@@ -37,3 +37,4 @@ REST API for task management with JWT authentication
 - [x] **Automated Migrations:** Database automatically migrates on startup.
 
 ## Notes for me
+- Add AsNoTracking to GetAllTasks method
