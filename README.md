@@ -2,11 +2,11 @@
 REST API for task management with JWT authentication
 
 ## Stack
-Runtime: ASP.NET Core 9
-Database: EF Core, PostgreSQL
-Containerization: Docker
-Auth: JWT
-API Documentaion: Swagger UI
+- Runtime: ASP.NET Core 9
+- Database: EF Core, PostgreSQL
+- Containerization: Docker
+- Auth: JWT
+- API Documentaion: Swagger UI
 
 ## How to run
 1. git clone https://github.com/Heckerman2281337/TodoAPI-OmgSoCreative-.git
