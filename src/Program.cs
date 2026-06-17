@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using TodoAPI.src.Services;
 using Microsoft.OpenApi.Models;
 using TodoAPI.src.Middleawares;
-
+using Microsoft.EntityFrameworkCore;
 public class Program
 {
     public static void Main(string[] args)
@@ -25,6 +25,13 @@ public class Program
              app.MapOpenApi();
          }
         */
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
+            db.Database.Migrate();
+        }
+
         app.UseMiddleware<ExceptionMiddleware>();
         app.UseAuthentication();
         app.UseAuthorization();

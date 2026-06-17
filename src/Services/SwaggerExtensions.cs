@@ -14,7 +14,7 @@ namespace TodoAPI.src.Services
                     Type = SecuritySchemeType.Http,
                     Scheme = "Bearer",
                     In = ParameterLocation.Header,
-                    Description = "Введи JWT токен"
+                    Description = "Введите JWT токен"
                 });
                 options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
