@@ -28,3 +28,10 @@ API Documentaion: Swagger UI
 - [ ] **Authorization Update:** Implementing Refresh Tokens for secure session updates.
 - [ ] **CI/CD:** Setting up GitHub actions for deployment and deployment of the device to a remote server.
 - [ ] **Test Coverage:** Adding Unit tests for business logic (xUnit + Moq).
+
+
+##Notes for me
+**Refactor Dockerfile and Compose for hybrid local development:**
+   * Enable compose to support two modes: running just the database (`docker-compose up -d db`) for backend development with `dotnet watch`, and running the entire stack for frontend development.
+   * Use multi-stage build in the Dockerfile (.NET SDK for building, ASP.NET Runtime for running) to reduce the size of the final image.
+   * Ensure that port `5432` is forwarded (`ports: - "5432:5432"`), otherwise local code from the IDE will not be able to access the database container.
