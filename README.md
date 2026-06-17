@@ -30,7 +30,7 @@ API Documentaion: Swagger UI
 - [ ] **Test Coverage:** Adding Unit tests for business logic (xUnit + Moq).
 
 
-##Notes for me
+## Notes for me
 **Refactor Dockerfile and Compose for hybrid local development:**
    * Enable compose to support two modes: running just the database (`docker-compose up -d db`) for backend development with `dotnet watch`, and running the entire stack for frontend development.
    * Use multi-stage build in the Dockerfile (.NET SDK for building, ASP.NET Runtime for running) to reduce the size of the final image.
