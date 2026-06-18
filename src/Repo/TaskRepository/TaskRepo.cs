@@ -19,7 +19,9 @@ namespace TodoAPI.src.Repo.TaskRepository
             TaskSortParams taskSort, TaskPaginationParams taskPagination
             ,CancellationToken cancellationToken)
         {
-            return await _context.Tasks.Where(x => x.UserId == userId)
+            return await _context.Tasks
+                .AsNoTracking()
+                .Where(x => x.UserId == userId)
                 .Filter(taskFilter)
                 .Sort(taskSort)
                 .ToPagedAsync(taskPagination);
