@@ -9,10 +9,11 @@ namespace TodoAPI.src.Services
     {
         public static IServiceCollection AddBuisnessLogic(this IServiceCollection serviceCollection)
         {
-            
-            serviceCollection.AddScoped<IValidator<TaskDTO>, TaskValidator>();
-            serviceCollection.AddScoped<IValidator<UpdateTaskDTO>, UpdatedTaskValidator>();
-            serviceCollection.AddScoped<IValidator<RegisterDTO>, UserValidator>();
+            //Stateless validators
+            serviceCollection.AddTransient<IValidator<TaskDTO>, TaskValidator>();
+            serviceCollection.AddTransient<IValidator<UpdateTaskDTO>, UpdatedTaskValidator>();
+            serviceCollection.AddTransient<IValidator<RegisterDTO>, UserValidator>();
+
 
             serviceCollection.AddScoped<IUserService, UserService>();
             serviceCollection.AddScoped<ITaskService, TaskService>();
