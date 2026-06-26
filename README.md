@@ -33,8 +33,10 @@ REST API for task management with JWT authentication
 - [ ] **Authorization Update:** Implementing Refresh Tokens for secure session updates.
 - [ ] **CI/CD:** Setting up GitHub actions for deployment and deployment of the device to a remote server.
 - [ ] **Test Coverage:** Adding Unit tests for business logic (xUnit + Moq).
+
 - [x] **Docker Multi-stage Build:** Optimized Dockerfile.
 - [x] **Automated Migrations:** Database automatically migrates on startup.
 
 ## Notes for me
 - [x] Add AsNoTracking to GetAllTasks method
+- [x] Host on railway
