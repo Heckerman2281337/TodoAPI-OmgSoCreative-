@@ -14,7 +14,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerWithAuth();
         builder.Services.AddAuth(builder.Configuration);
-        builder.Services.AddDataAcces();
+        builder.Services.AddDataAcces(builder.Configuration);
         builder.Services.AddBuisnessLogic();
         builder.Services.AddControllers();
 
