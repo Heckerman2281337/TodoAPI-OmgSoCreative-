@@ -8,6 +8,9 @@ REST API for task management with JWT authentication
 - Auth: JWT
 - API Documentaion: Swagger UI
 
+## Pre-Demo
+https://todoapi-omgsocreative-production.up.railway.app/swagger
+
 ## How to run
 1. git clone https://github.com/Heckerman2281337/TodoAPI-OmgSoCreative-.git
 2. cd TodoAPI-OmgSoCreative-
