@@ -1,8 +1,8 @@
-﻿using TodoAPI.src.DTOs;
-using TodoAPI.src.Entities;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-namespace TodoAPI.src.Services.TaskServices
+﻿using TodoAPI.DTOs;
+using TodoAPI.Entities;
+using TodoAPI.QueryParams;
+
+namespace TodoAPI.Services.TaskServices
 {
     public interface ITaskService
     {

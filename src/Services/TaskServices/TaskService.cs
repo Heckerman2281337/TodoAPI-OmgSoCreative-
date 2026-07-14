@@ -1,10 +1,10 @@
-﻿using TodoAPI.src.Repo.TaskRepository;
-using TodoAPI.src.Entities;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.Validators;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-namespace TodoAPI.src.Services.TaskServices
+﻿using TodoAPI.Repo.TaskRepository;
+using TodoAPI.Entities;
+using TodoAPI.DTOs;
+using TodoAPI.Validators;
+using TodoAPI.QueryParams;
+
+namespace TodoAPI.Services.TaskServices
 {
     public class TaskService
         (ITaskRepo taskRepository,

@@ -1,4 +1,4 @@
-﻿namespace TodoAPI.src.Middleawares
+﻿namespace TodoAPI.Middlewares
 {
     public class ExceptionMiddleware
     {

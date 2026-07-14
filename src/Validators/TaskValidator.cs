@@ -1,6 +1,6 @@
-﻿using TodoAPI.src.DTOs;
+﻿using TodoAPI.DTOs;
 
-namespace TodoAPI.src.Validators
+namespace TodoAPI.Validators
 {
     public interface IValidator<T>
     {

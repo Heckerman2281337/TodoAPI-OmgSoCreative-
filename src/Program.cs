@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.OpenApi;
-using TodoAPI.src.Repo;
+using TodoAPI.Repo;
 using Microsoft.EntityFrameworkCore.Design;
-using TodoAPI.src.Services;
+using TodoAPI.Services;
 using Microsoft.OpenApi.Models;
-using TodoAPI.src.Middleawares;
+using TodoAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 public class Program
 {

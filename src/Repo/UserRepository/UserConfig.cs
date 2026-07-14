@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TodoAPI.src.Entities;
+using TodoAPI.Entities;
 
-namespace TodoAPI.src.Repo.UserRepository
+namespace TodoAPI.Repo.UserRepository
 {
     public class UserConfig : IEntityTypeConfiguration<UserEntity>
     {

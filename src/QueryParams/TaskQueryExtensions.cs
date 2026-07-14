@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using TodoAPI.src.Entities;
-using TodoAPI.src.QueryParams;
-namespace TodoAPI.src.QuerryParams
+using TodoAPI.Entities;
+using TodoAPI; 
+
+namespace TodoAPI.QueryParams
 {
     public static class TaskQueryExtensions
     {

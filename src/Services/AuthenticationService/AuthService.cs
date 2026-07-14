@@ -2,11 +2,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.Entities;
-using TodoAPI.src.Repo.UserRepository;
+using TodoAPI.DTOs;
+using TodoAPI.Entities;
+using TodoAPI.Repo.UserRepository;
 
-namespace TodoAPI.src.Services.Authentication
+namespace TodoAPI.Services.AuthService
 {
     public class AuthService(IUserRepo userRepository, IConfiguration configuration) : IAuthService
     {

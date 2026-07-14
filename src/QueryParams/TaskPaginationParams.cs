@@ -1,5 +1,5 @@
 ﻿
-namespace TodoAPI.src.QuerryParams
+namespace TodoAPI.src.QueryParams
 {
     public class TaskPaginationParams
     {

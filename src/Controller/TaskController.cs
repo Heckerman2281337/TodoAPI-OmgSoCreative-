@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-using TodoAPI.src.Services.TaskServices;
-namespace TodoAPI.src.Controller
+using TodoAPI.DTOs;
+using TodoAPI.QueryParams;
+using TodoAPI.Services.TaskServices;
+
+namespace TodoAPI.Controller
 {
     [Authorize]
     [ApiController]

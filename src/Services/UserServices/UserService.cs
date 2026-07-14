@@ -1,11 +1,11 @@
-﻿using TodoAPI.src.Repo.UserRepository;
-using TodoAPI.src.Entities;
-using TodoAPI.src.DTOs;
+﻿using TodoAPI.Repo.UserRepository;
+using TodoAPI.Entities;
+using TodoAPI.DTOs;
 using BCrypt;
 using BCrypt.Net;
-using TodoAPI.src.Validators;
+using TodoAPI.Validators;
 
-namespace TodoAPI.src.Services.UserServices
+namespace TodoAPI.Services.UserServices
 {
     public class UserService(IUserRepo userRepository, IValidator<RegisterDTO> userValidator) : IUserService
     {
