@@ -8,7 +8,7 @@ REST API for task management with JWT authentication
 - Auth: JWT
 - API Documentaion: Swagger UI
 
-## Pre-Demo
+## Live Demo
 https://todoapi-omgsocreative-production.up.railway.app/swagger
 
 ## How to run
@@ -21,14 +21,16 @@ https://todoapi-omgsocreative-production.up.railway.app/swagger
 #### Mode B: Hybrid Infrastructure (For Backend Development)
 3. docker-compose up -d db
 4. dotnet watch run
-## List of endpoints
-- POST /User/register - user registration
-- POST /User/login - user login, return JWT
-### Endpoint below requires JWT:
-- GET /Task - returns all task for user
-- POST /Task - create task
-- PATCH /Task/{id} - update task by its id
-- DELETE /Task/{id} - delete task by its id
+## API Endpoints
+
+| Method | Endpoint | Authentication | Description |
+|--------|----------|----------------|-------------|
+| POST | `/User/register` | ❌ | Register a new user |
+| POST | `/User/login` | ❌ | Login and receive JWT |
+| GET | `/Task` | ✅ | Get all tasks |
+| POST | `/Task` | ✅ | Create a new task |
+| PATCH | `/Task/{id}` | ✅ | Update a task |
+| DELETE | `/Task/{id}` | ✅ | Delete a task |
 
 ## Project Development
 - [ ] **Frontend Integration:** Developing an SPA application (React/Next.js) for a full-fledged user interface.
