@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TodoAPI.src.Entities;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
+using TodoAPI.Entities;
+using TodoAPI.QueryParams;
 
-namespace TodoAPI.src.Repo.TaskRepository
+namespace TodoAPI.Repo.TaskRepository
 {
     public class TaskRepo : ITaskRepo
     {

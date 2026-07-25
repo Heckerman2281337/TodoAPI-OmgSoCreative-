@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using TodoAPI.src.Repo.TaskRepository;
-using TodoAPI.src.Repo.UserRepository;
-using TodoAPI.src.Services.Authentication;
+using TodoAPI.Repo.TaskRepository;
+using TodoAPI.Repo.UserRepository;
+using TodoAPI.Services.AuthenticationService;
 
-namespace TodoAPI.src.Repo
+namespace TodoAPI.Repo
 {
     public static class Extensions
     {

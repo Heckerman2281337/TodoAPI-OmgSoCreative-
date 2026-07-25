@@ -1,5 +1,5 @@
 ﻿//Class for frontend
-namespace TodoAPI.src
+namespace TodoAPI
 {
     public class PagedResult<T>
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.Entities;
+using TodoAPI.DTOs;
+using TodoAPI.Entities;
 
-namespace TodoAPI.src.Repo.UserRepository
+namespace TodoAPI.Repo.UserRepository
 {
     public class UserRepo: IUserRepo
     {

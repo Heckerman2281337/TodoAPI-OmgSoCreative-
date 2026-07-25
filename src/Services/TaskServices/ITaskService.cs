@@ -1,8 +1,8 @@
-﻿using TodoAPI.src.DTOs;
-using TodoAPI.src.Entities;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-namespace TodoAPI.src.Services.TaskServices
+﻿using TodoAPI.DTOs;
+using TodoAPI.Entities;
+using TodoAPI.QueryParams;
+
+namespace TodoAPI.Services.TaskServices
 {
     public interface ITaskService
     {
@@ -12,8 +12,8 @@ namespace TodoAPI.src.Services.TaskServices
             ,CancellationToken cancellationToken = default);
 
         Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default);
-        Task<TaskEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, CancellationToken cancellationToken = default);
+        Task<TaskEntity> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default);
+        Task DeleteAsync(Guid id, Guid userId, CancellationToken cancellationToken = default);
+        Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, Guid userId, CancellationToken cancellationToken = default);
     }
 }

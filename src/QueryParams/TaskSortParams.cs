@@ -1,4 +1,4 @@
-﻿namespace TodoAPI.src.QueryParams
+﻿namespace TodoAPI.QueryParams
 {
     public enum SortDirection
     {

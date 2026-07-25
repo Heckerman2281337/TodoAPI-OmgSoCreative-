@@ -1,7 +1,7 @@
-﻿using TodoAPI.src.Entities;
-using TodoAPI.src.DTOs;
+﻿using TodoAPI.Entities;
+using TodoAPI.DTOs;
 
-namespace TodoAPI.src.Repo.UserRepository
+namespace TodoAPI.Repo.UserRepository
 {
     public interface IUserRepo
     {

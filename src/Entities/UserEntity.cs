@@ -1,4 +1,4 @@
-﻿namespace TodoAPI.src.Entities
+﻿namespace TodoAPI.Entities
 {
     public class UserEntity
     {

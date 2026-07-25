@@ -1,10 +1,10 @@
-﻿using TodoAPI.src.Repo.TaskRepository;
-using TodoAPI.src.Entities;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.Validators;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-namespace TodoAPI.src.Services.TaskServices
+﻿using TodoAPI.Repo.TaskRepository;
+using TodoAPI.Entities;
+using TodoAPI.DTOs;
+using TodoAPI.Validators;
+using TodoAPI.QueryParams;
+
+namespace TodoAPI.Services.TaskServices
 {
     public class TaskService
         (ITaskRepo taskRepository,
@@ -26,35 +26,38 @@ namespace TodoAPI.src.Services.TaskServices
             await taskRepository.CreateAsync(task, cancellationToken);
         }
 
-        public async Task<TaskEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<TaskEntity> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
 
             if (task is null)
-                throw new ArgumentException("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
-
+                throw new KeyNotFoundException("Задача не найдена.");
+            if (task.UserId != userId)
+                throw new KeyNotFoundException("Задача не найдена.");
             return task;
         }
 
-        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
-            var entity = await taskRepository.GetByIdAsync(id);
+            var task = await taskRepository.GetByIdAsync(id, cancellationToken);
 
-            if (entity == null)
-                throw new ArgumentException("Такой задачи не существует");
-
-            await taskRepository.DeleteAsync(entity, cancellationToken);
+            if (task is null)
+                throw new KeyNotFoundException("Задача не найдена.");
+            if (task.UserId != userId)
+                throw new KeyNotFoundException("Задача не найдена.");
+            await taskRepository.DeleteAsync(task, cancellationToken);
         }
 
-        public async Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, CancellationToken cancellationToken = default)
+        public async Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
             updatedTaskValidator.Validate(dto);
             var task = await taskRepository.GetByIdAsync(id, cancellationToken);
             
             if (task is null)
-                throw new ArgumentException("НЕТЬ ТАКОЙ ЗАДАЧКИ ТО");
-
-            task.Update(dto.Title, dto.Description, dto.IsComplete);
+                throw new KeyNotFoundException("Задача не найдена.");
+            if (task.UserId != userId)
+                throw new KeyNotFoundException("Задача не найдена.");
+            task.Update(dto.Title, dto.Description, dto.IsCompleted);
 
             await taskRepository.UpdateAsync(task, cancellationToken); 
 

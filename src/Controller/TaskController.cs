@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TodoAPI.src.DTOs;
-using TodoAPI.src.QuerryParams;
-using TodoAPI.src.QueryParams;
-using TodoAPI.src.Services.TaskServices;
-namespace TodoAPI.src.Controller
+using TodoAPI.DTOs;
+using TodoAPI.QueryParams;
+using TodoAPI.Services.TaskServices;
+
+namespace TodoAPI.Controller
 {
     [Authorize]
     [ApiController]
@@ -35,21 +35,26 @@ namespace TodoAPI.src.Controller
         [HttpGet(template:"{id:guid}")]
         public async Task<IActionResult> GetTaskAsync([FromRoute] Guid id)
         {
-            var result = await taskService.GetByIdAsync(id);
+            var userId = GetUserId();
+            var result = await taskService.GetByIdAsync(id, userId);
             return Ok(result);
         }
 
         [HttpDelete(template:("{id:guid}"))]
         public async Task<IActionResult> DeleteTaskAsync([FromRoute] Guid id)
         {
-            await taskService.DeleteAsync(id);
+            var userId = GetUserId();
+            await taskService.DeleteAsync(id, userId);
             return NoContent();
         }
 
         [HttpPatch(template:("{id:guid}"))]
-        public async Task<IActionResult> UpdateTaskAsync([FromBody] UpdateTaskDTO dto, [FromRoute] Guid id)
+        public async Task<IActionResult> UpdateTaskAsync(
+            UpdateTaskDTO dto,
+            [FromRoute] Guid id)
         {
-            var updatedTask = await taskService.UpdateAsync(dto, id);
+            var userId = GetUserId();
+            var updatedTask = await taskService.UpdateAsync(dto, id, userId);
             return Ok(updatedTask);
         }
     }

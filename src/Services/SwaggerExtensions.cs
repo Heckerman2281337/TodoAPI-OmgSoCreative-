@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace TodoAPI.src.Services
+namespace TodoAPI.Services
 {
     public static class SwaggerExtensions
     {

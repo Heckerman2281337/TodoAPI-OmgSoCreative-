@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TodoAPI.src.Entities;
+using TodoAPI.Entities;
 
-namespace TodoAPI.src.Repo.TaskRepository
+namespace TodoAPI.Repo.TaskRepository
 {
     public class TaskConfig : IEntityTypeConfiguration<TaskEntity>
     {

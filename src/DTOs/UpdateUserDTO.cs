@@ -1,4 +1,4 @@
-﻿namespace TodoAPI.src.DTOs
+﻿namespace TodoAPI.DTOs
 {
     public class UpdateUserDTO
     {

@@ -1,9 +1,10 @@
-﻿using TodoAPI.src.DTOs;
-using TodoAPI.src.Services.Authentication;
-using TodoAPI.src.Services.TaskServices;
-using TodoAPI.src.Services.UserServices;
-using TodoAPI.src.Validators;
-namespace TodoAPI.src.Services
+﻿using TodoAPI.DTOs;
+using TodoAPI.Services.AuthenticationService;
+using TodoAPI.Services.TaskServices;
+using TodoAPI.Services.UserServices;
+using TodoAPI.Validators;
+
+namespace TodoAPI.Services
 {
     public static class Extensions
     {
