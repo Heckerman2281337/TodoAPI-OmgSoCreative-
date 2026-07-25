@@ -1,4 +1,4 @@
-﻿namespace TodoAPI.src.DTOs
+﻿namespace TodoAPI.DTOs
 {
     public class TaskDTO
     {
@@ -9,7 +9,6 @@
         }
         public string Title { get; init; }
         public string? Description { get; init; }
-
 
     }
 }

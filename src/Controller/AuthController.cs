@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TodoAPI.DTOs;
-using TodoAPI.Services.AuthService;
+using TodoAPI.Services.AuthenticationService;
 using TodoAPI.Services.UserServices;
 
 namespace TodoAPI.Controller
@@ -12,6 +12,8 @@ namespace TodoAPI.Controller
         [HttpPost(template:"register")]
         public async Task<IActionResult> UserCreate([FromBody] RegisterDTO dto)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             await userService.CreateAsync(dto);
             return CreatedAtAction(nameof(UserCreate), null);
         }
@@ -19,8 +21,15 @@ namespace TodoAPI.Controller
         [HttpPost(template:"login")]
         public async Task<IActionResult> LoginAsync([FromBody] LoginDTO dto)
         {
-            var token = await authService.LoginAsync(dto);
-            return Ok(new {token});
+            try
+            {
+                var token = await authService.LoginAsync(dto);
+                return Ok(new { token });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new {message = "Invalid login or password"});
+            }
         }
     }
 }

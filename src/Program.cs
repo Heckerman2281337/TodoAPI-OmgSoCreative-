@@ -5,6 +5,7 @@ using TodoAPI.Services;
 using Microsoft.OpenApi.Models;
 using TodoAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
+
 public class Program
 {
     public static void Main(string[] args)

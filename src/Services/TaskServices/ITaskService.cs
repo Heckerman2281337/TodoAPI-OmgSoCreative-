@@ -12,8 +12,8 @@ namespace TodoAPI.Services.TaskServices
             ,CancellationToken cancellationToken = default);
 
         Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default);
-        Task<TaskEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, CancellationToken cancellationToken = default);
+        Task<TaskEntity> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default);
+        Task DeleteAsync(Guid id, Guid userId, CancellationToken cancellationToken = default);
+        Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, Guid userId, CancellationToken cancellationToken = default);
     }
 }

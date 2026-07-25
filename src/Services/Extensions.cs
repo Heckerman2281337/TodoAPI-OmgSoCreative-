@@ -2,9 +2,9 @@
 using TodoAPI.Services.AuthenticationService;
 using TodoAPI.Services.TaskServices;
 using TodoAPI.Services.UserServices;
-using TodoAPI.src.Validators;
+using TodoAPI.Validators;
 
-namespace TodoAPI.src.Services
+namespace TodoAPI.Services
 {
     public static class Extensions
     {

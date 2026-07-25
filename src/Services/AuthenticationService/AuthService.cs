@@ -6,7 +6,7 @@ using TodoAPI.DTOs;
 using TodoAPI.Entities;
 using TodoAPI.Repo.UserRepository;
 
-namespace TodoAPI.Services.AuthService
+namespace TodoAPI.Services.AuthenticationService
 {
     public class AuthService(IUserRepo userRepository, IConfiguration configuration) : IAuthService
     {
