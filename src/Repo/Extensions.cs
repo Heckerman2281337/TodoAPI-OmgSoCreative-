@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using TodoAPI.Repo.TaskRepository;
 using TodoAPI.Repo.UserRepository;
-using TodoAPI.Services.AuthenticationService;
 
 namespace TodoAPI.Repo
 {

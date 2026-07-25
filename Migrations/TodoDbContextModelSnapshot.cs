@@ -8,7 +8,7 @@ using TodoAPI.Repo;
 
 #nullable disable
 
-namespace TodoAPI.src.Migrations
+namespace TodoAPI.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
     partial class TodoDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace TodoAPI.src.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TodoAPI.src.Entities.TaskEntity", b =>
+            modelBuilder.Entity("TodoAPI.Entities.TaskEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace TodoAPI.src.Migrations
                     b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("TodoAPI.src.Entities.UserEntity", b =>
+            modelBuilder.Entity("TodoAPI.Entities.UserEntity", b =>
                 {
                     b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
@@ -88,9 +88,9 @@ namespace TodoAPI.src.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TodoAPI.src.Entities.TaskEntity", b =>
+            modelBuilder.Entity("TodoAPI.Entities.TaskEntity", b =>
                 {
-                    b.HasOne("TodoAPI.src.Entities.UserEntity", "User")
+                    b.HasOne("TodoAPI.Entities.UserEntity", "User")
                         .WithMany("Tasks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -99,7 +99,7 @@ namespace TodoAPI.src.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TodoAPI.src.Entities.UserEntity", b =>
+            modelBuilder.Entity("TodoAPI.Entities.UserEntity", b =>
                 {
                     b.Navigation("Tasks");
                 });

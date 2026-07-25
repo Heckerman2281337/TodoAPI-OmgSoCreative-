@@ -3,21 +3,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TodoAPI.src.Migrations
+namespace TodoAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class AddUsersAndRelations : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<Guid>(
-                name: "UserId",
-                table: "Tasks",
-                type: "uuid",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -31,6 +24,29 @@ namespace TodoAPI.src.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tasks",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Title = table.Column<string>(type: "character varying(140)", maxLength: 140, nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Updated = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IsCompleted = table.Column<bool>(type: "boolean", nullable: true),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tasks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tasks_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -49,33 +65,16 @@ namespace TodoAPI.src.Migrations
                 table: "Users",
                 column: "Username",
                 unique: true);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Tasks_Users_UserId",
-                table: "Tasks",
-                column: "UserId",
-                principalTable: "Users",
-                principalColumn: "UserId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Tasks_Users_UserId",
-                table: "Tasks");
+            migrationBuilder.DropTable(
+                name: "Tasks");
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Tasks_UserId",
-                table: "Tasks");
-
-            migrationBuilder.DropColumn(
-                name: "UserId",
-                table: "Tasks");
         }
     }
 }
