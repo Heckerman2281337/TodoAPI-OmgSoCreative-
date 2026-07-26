@@ -22,7 +22,10 @@ namespace TodoAPI.Services.TaskServices
         public async Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default)
         {
             taskValidator.Validate(dto);
-            var task = new TaskEntity(dto.Title, dto.Description ?? string.Empty, userId);
+            DateTime.TryParse(dto.Deadline, out var deadline);
+
+            var task = new TaskEntity(dto.Title, dto.Description ?? string.Empty, 
+                userId, deadline, dto.Category, dto.Priority);
             await taskRepository.CreateAsync(task, cancellationToken);
         }
 
@@ -45,6 +48,7 @@ namespace TodoAPI.Services.TaskServices
                 throw new KeyNotFoundException("Задача не найдена.");
             if (task.UserId != userId)
                 throw new KeyNotFoundException("Задача не найдена.");
+
             await taskRepository.DeleteAsync(task, cancellationToken);
         }
 
@@ -57,12 +61,13 @@ namespace TodoAPI.Services.TaskServices
                 throw new KeyNotFoundException("Задача не найдена.");
             if (task.UserId != userId)
                 throw new KeyNotFoundException("Задача не найдена.");
-            task.Update(dto.Title, dto.Description, dto.IsCompleted);
+            DateTime.TryParse(dto.Deadline, out DateTime deadline);
 
-            await taskRepository.UpdateAsync(task, cancellationToken); 
+            task.Update(dto.Title, dto.Description, dto.IsCompleted,
+                dto.Category, dto.Priority, deadline);
 
+            await taskRepository.UpdateAsync(task, cancellationToken);
             return task;
         }
-
     }
 }
