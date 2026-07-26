@@ -17,6 +17,7 @@ namespace TodoAPI.Repo.TaskRepository
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(i => i.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.Ignore(t => t.Exparation);
         }
     }
 }
