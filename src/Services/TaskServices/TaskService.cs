@@ -11,33 +11,37 @@ namespace TodoAPI.Services.TaskServices
         IValidator<TaskDTO> taskValidator,
         IValidator<UpdateTaskDTO> updatedTaskValidator): ITaskService
     {
-        public async Task<PagedResult<TaskEntity>> GetAllAsync
+        public async Task<PagedResult<TaskResponseDTO>> GetAllAsync
             (Guid userId, TaskFilterParams taskFilter
             ,TaskSortParams taskSort, TaskPaginationParams taskPagination
             ,CancellationToken cancellationToken = default)
         {
-            return await taskRepository.GetAllAsync(userId, taskFilter, taskSort, taskPagination, cancellationToken);
+            var result = await taskRepository.GetAllAsync(userId, taskFilter, taskSort, taskPagination, cancellationToken);
+            var taskResponses = result.Data.Select(task => new TaskResponseDTO(task)).ToArray();
+
+            return new PagedResult<TaskResponseDTO>(taskResponses, result.TotalCount);
         }
 
         public async Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default)
         {
             taskValidator.Validate(dto);
-            DateTime.TryParse(dto.Deadline, out var deadline);
 
             var task = new TaskEntity(dto.Title, dto.Description ?? string.Empty, 
-                userId, deadline, dto.Category, dto.Priority);
+                userId, dto.Deadline, dto.Category, dto.Priority);
             await taskRepository.CreateAsync(task, cancellationToken);
         }
 
-        public async Task<TaskEntity> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
+        public async Task<TaskResponseDTO> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
-            var task = await taskRepository.GetByIdAsync(id, cancellationToken);
+            var taskEntity = await taskRepository.GetByIdAsync(id, cancellationToken);
+            if (taskEntity is null)
+                throw new KeyNotFoundException("Задача не найдена.");
+            if (taskEntity.UserId != userId)
+                throw new KeyNotFoundException("Задача не найдена.");
 
-            if (task is null)
-                throw new KeyNotFoundException("Задача не найдена.");
-            if (task.UserId != userId)
-                throw new KeyNotFoundException("Задача не найдена.");
-            return task;
+            var taskResponse = new TaskResponseDTO(taskEntity);
+
+            return taskResponse;
         }
 
         public async Task DeleteAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
@@ -52,22 +56,24 @@ namespace TodoAPI.Services.TaskServices
             await taskRepository.DeleteAsync(task, cancellationToken);
         }
 
-        public async Task<TaskEntity> UpdateAsync(UpdateTaskDTO dto, Guid id, Guid userId, CancellationToken cancellationToken = default)
+        public async Task<TaskResponseDTO> UpdateAsync(UpdateTaskDTO dto, Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
             updatedTaskValidator.Validate(dto);
-            var task = await taskRepository.GetByIdAsync(id, cancellationToken);
+            var taskEntity = await taskRepository.GetByIdAsync(id, cancellationToken);
             
-            if (task is null)
+            if (taskEntity is null)
                 throw new KeyNotFoundException("Задача не найдена.");
-            if (task.UserId != userId)
+            if (taskEntity.UserId != userId)
                 throw new KeyNotFoundException("Задача не найдена.");
-            DateTime.TryParse(dto.Deadline, out DateTime deadline);
 
-            task.Update(dto.Title, dto.Description, dto.IsCompleted,
-                dto.Category, dto.Priority, deadline);
+            taskEntity.Update(dto.Title, dto.Description, dto.IsCompleted,
+                dto.Category, dto.Priority, dto.Deadline);
 
-            await taskRepository.UpdateAsync(task, cancellationToken);
-            return task;
+            await taskRepository.UpdateAsync(taskEntity, cancellationToken);
+
+            var taskResponse = new TaskResponseDTO(taskEntity);
+
+            return taskResponse;
         }
     }
 }

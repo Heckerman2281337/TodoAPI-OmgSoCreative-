@@ -17,8 +17,7 @@ namespace TodoAPI.Controller
         [HttpPost]
         public async Task<IActionResult> CreateTaskAsync([FromBody] TaskDTO dto)
         {
-            var userId = GetUserId();
-            await taskService.CreateAsync(dto, userId);
+            await taskService.CreateAsync(dto, GetUserId());
             return StatusCode(201);
         }
 
@@ -27,34 +26,30 @@ namespace TodoAPI.Controller
             ([FromQuery] TaskFilterParams taskFilter,[FromQuery] TaskSortParams taskSort
             ,[FromQuery] TaskPaginationParams taskPagination)
         {
-            var userId = GetUserId();
-            var tasks = await taskService.GetAllAsync(userId, taskFilter, taskSort, taskPagination);
+            var tasks = await taskService.GetAllAsync(GetUserId(), taskFilter, 
+                taskSort, taskPagination);
             return Ok(tasks);
         }
 
         [HttpGet(template:"{id:guid}")]
         public async Task<IActionResult> GetTaskAsync([FromRoute] Guid id)
         {
-            var userId = GetUserId();
-            var result = await taskService.GetByIdAsync(id, userId);
+            var result = await taskService.GetByIdAsync(id, GetUserId());
             return Ok(result);
         }
 
         [HttpDelete(template:("{id:guid}"))]
         public async Task<IActionResult> DeleteTaskAsync([FromRoute] Guid id)
         {
-            var userId = GetUserId();
-            await taskService.DeleteAsync(id, userId);
+            await taskService.DeleteAsync(id, GetUserId());
             return NoContent();
         }
 
         [HttpPatch(template:("{id:guid}"))]
-        public async Task<IActionResult> UpdateTaskAsync(
-            UpdateTaskDTO dto,
+        public async Task<IActionResult> UpdateTaskAsync([FromBody]UpdateTaskDTO dto,
             [FromRoute] Guid id)
         {
-            var userId = GetUserId();
-            var updatedTask = await taskService.UpdateAsync(dto, id, userId);
+            var updatedTask = await taskService.UpdateAsync(dto, id, GetUserId());
             return Ok(updatedTask);
         }
     }
