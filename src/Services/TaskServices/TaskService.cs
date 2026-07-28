@@ -25,7 +25,6 @@ namespace TodoAPI.Services.TaskServices
         public async Task CreateAsync(TaskDTO dto, Guid userId, CancellationToken cancellationToken = default)
         {
             taskValidator.Validate(dto);
-
             var task = new TaskEntity(dto.Title, dto.Description ?? string.Empty, 
                 userId, dto.Deadline, dto.Category, dto.Priority);
             await taskRepository.CreateAsync(task, cancellationToken);

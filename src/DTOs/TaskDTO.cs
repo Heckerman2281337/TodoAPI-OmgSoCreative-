@@ -5,7 +5,7 @@ namespace TodoAPI.DTOs
     public class TaskDTO
     {
         public TaskDTO(string title, string? description, 
-            DateTime deadline, TaskCategory category, TaskPriority priority) 
+            DateTime? deadline, TaskCategory category, TaskPriority priority) 
         { 
             Title = title;
             Description = description;

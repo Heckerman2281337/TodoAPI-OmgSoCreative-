@@ -12,6 +12,7 @@ namespace TodoAPI.DTOs
             Deadline = task.Deadline;
             Updated = task.Updated;
             IsCompleted = task.IsCompleted;
+            Id = task.Id;
             Category = task.Category;
             Priority = task.Priority;
             Exparation = task.Exparation;
@@ -19,6 +20,8 @@ namespace TodoAPI.DTOs
 
         public string Title { get; private set; }
         public string? Description { get; private set; }
+
+        public Guid Id { get; private set; }
 
         public DateTime Created { get; private set; }
         public DateTime? Deadline { get; private set; }
