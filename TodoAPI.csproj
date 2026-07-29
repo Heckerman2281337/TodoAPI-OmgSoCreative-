@@ -13,6 +13,13 @@
     <None Remove="src\Models\**" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Compile Remove="TodoTests\**" />
+		<Content Remove="TodoTests\**" />
+		<EmbeddedResource Remove="TodoTests\**" />
+		<None Remove="TodoTests\**" />
+	</ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.17" />
