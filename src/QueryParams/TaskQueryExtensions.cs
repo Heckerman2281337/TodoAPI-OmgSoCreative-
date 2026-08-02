@@ -26,7 +26,7 @@ namespace TodoAPI.QueryParams
 
         public static async Task<PagedResult<TaskEntity>> ToPagedAsync
             (this IQueryable<TaskEntity> query,
-            TaskPaginationParams taskPagination)
+            TaskPaginationParams taskPagination, CancellationToken cancellation)
         {
             var count = await query.CountAsync();
             if (count == 0)

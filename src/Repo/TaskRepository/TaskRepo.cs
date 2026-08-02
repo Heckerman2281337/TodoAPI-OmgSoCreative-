@@ -23,12 +23,12 @@ namespace TodoAPI.Repo.TaskRepository
                 .Where(x => x.UserId == userId)
                 .Filter(taskFilter)
                 .Sort(taskSort)
-                .ToPagedAsync(taskPagination);
+                .ToPagedAsync(taskPagination, cancellationToken);
         }
 
         public async Task<TaskEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
+            return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id, cancellationToken);
         }
 
         public async Task<TaskEntity> CreateAsync(TaskEntity entity, CancellationToken cancellationToken)
@@ -41,14 +41,14 @@ namespace TodoAPI.Repo.TaskRepository
         public async Task<TaskEntity?> UpdateAsync(TaskEntity entity, CancellationToken cancellationToken)
         {
             _context.Tasks.Update(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
         public async Task DeleteAsync(TaskEntity entity, CancellationToken cancellationToken)
         {
             _context.Tasks.Remove(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -23,25 +23,25 @@ namespace TodoAPI.Repo.UserRepository
         public async Task DeleteAsync(UserEntity entity, CancellationToken cancellationToken = default)
         {
             _context.Users.Remove(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<UserEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+            var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id, cancellationToken);
             return entity;
         }
 
         public async Task<UserEntity?> GetByUsernameAsync(string username, CancellationToken cancellationToken = default)
         {
-            var entity = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var entity = await _context.Users.FirstOrDefaultAsync(x => x.Username == username, cancellationToken);
             return entity;
         }
 
         public async Task<UserEntity?> UpdateAsync(UserEntity entity, CancellationToken cancellationToken = default)
         {
             _context.Users.Update(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }
     }
