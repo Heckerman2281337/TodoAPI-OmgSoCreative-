@@ -1,16 +1,15 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Serilog;
 
 namespace TodoAPI.Middlewares
 {
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;
+        private static readonly Serilog.ILogger _log = Log.ForContext<ExceptionMiddleware>();
 
-        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
+        public ExceptionMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -21,7 +20,7 @@ namespace TodoAPI.Middlewares
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Необработанное исключение: {ex.Message}");
+                _log.Error(ex, "Произошло необработанное исключение в middleware: {Message}", ex.Message);
                 await HandleExceptionAsync(context, ex);
             }
         }
@@ -37,7 +36,7 @@ namespace TodoAPI.Middlewares
 
                 _ => (StatusCodes.Status500InternalServerError, "Внутренняя ошибка сервера.")
             };
-
+            
             context.Response.StatusCode = statusCode;
 
             var response = new
@@ -45,7 +44,7 @@ namespace TodoAPI.Middlewares
                 status = statusCode,
                 error = message,
             };
-
+            _log.Information("Отправлен ответ клиенту с ошибкой: {Error}, статус: {Status}", response.error, response.status);
             await context.Response.WriteAsJsonAsync(response);
         }
     }
