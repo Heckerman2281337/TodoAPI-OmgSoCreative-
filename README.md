@@ -37,7 +37,7 @@ https://todoapi-omgsocreative-production.up.railway.app/swagger
 - [X] **Expanding Task Functionality:** Adding categories (tags), priorities, and deadlines for To-Do items.
 - [ ] **Authorization Update:** Implementing Refresh Tokens for secure session updates.
 - [ ] **CI/CD:** Setting up GitHub actions for deployment and deployment of the device to a remote server.
-- [ ] **Test Coverage:** Adding Unit tests for business logic (xUnit + Moq).
+- [X] **Test Coverage:** Adding Unit tests for business logic (xUnit + Moq).
 
 - [x] **Docker Multi-stage Build:** Optimized Dockerfile.
 - [x] **Automated Migrations:** Database automatically migrates on startup.
