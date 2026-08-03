@@ -1,4 +1,5 @@
-﻿using TodoAPI.DTOs;
+﻿using FluentValidation.TestHelper;
+using TodoAPI.DTOs;
 using TodoAPI.Entities;
 using TodoAPI.Validators;
 
@@ -18,10 +19,9 @@ namespace TodoTests.Tasks
                 TaskCategory.None,
                 TaskPriority.None);
 
-            var exception = Record.Exception(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
 
-            Assert.Null(exception);
+            result.ShouldNotHaveValidationErrorFor(x => x.Title);
         }
 
 
@@ -35,9 +35,9 @@ namespace TodoTests.Tasks
                 TaskCategory.None,
                 TaskPriority.None);
 
+            var result = _validator.TestValidate(dto);
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            result.ShouldHaveValidationErrorFor(x => x.Title);
         }
 
 
@@ -52,8 +52,9 @@ namespace TodoTests.Tasks
                 TaskPriority.None);
 
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
+
+            result.ShouldHaveValidationErrorFor(x => x.Title);
         }
     }
 }

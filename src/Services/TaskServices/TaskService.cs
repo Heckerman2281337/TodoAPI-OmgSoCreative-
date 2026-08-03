@@ -4,6 +4,7 @@ using TodoAPI.DTOs;
 using TodoAPI.Validators;
 using TodoAPI.QueryParams;
 using Serilog;
+using FluentValidation;
 
 namespace TodoAPI.Services.TaskServices
 {

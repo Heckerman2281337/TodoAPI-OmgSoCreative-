@@ -3,11 +3,9 @@ using Serilog;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Xml;
 using TodoAPI.DTOs;
 using TodoAPI.Entities;
 using TodoAPI.Repo.UserRepository;
-using TodoAPI.Services.TaskServices;
 
 namespace TodoAPI.Services.AuthenticationService
 {

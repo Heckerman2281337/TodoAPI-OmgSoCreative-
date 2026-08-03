@@ -1,4 +1,5 @@
-﻿using TodoAPI.DTOs;
+﻿using FluentValidation.TestHelper;
+using TodoAPI.DTOs;
 using TodoAPI.Validators;
 
 namespace TodoTests.User
@@ -18,9 +19,9 @@ namespace TodoTests.User
                 Email = "user@test.com"
             };
 
-            var exception = Record.Exception(() => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
 
-            Assert.Null(exception);
+            result.ShouldNotHaveAnyValidationErrors();
         }
 
 
@@ -35,8 +36,9 @@ namespace TodoTests.User
                 Email = "user@test.com"
             };
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
+
+            result.ShouldHaveValidationErrorFor(x => x.Username);
         }
 
 
@@ -51,8 +53,9 @@ namespace TodoTests.User
                 Email = "user@test.com"
             };
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
+
+            result.ShouldHaveValidationErrorFor(x => x.Password);
         }
 
 
@@ -67,8 +70,9 @@ namespace TodoTests.User
                 Email = "user@test.com"
             };
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
+
+            result.ShouldHaveValidationErrorFor(x => x.ConfirmedPassword);
         }
 
 
@@ -83,8 +87,9 @@ namespace TodoTests.User
                 Email = "wrong-email"
             };
 
-            Assert.Throws<ArgumentException>(
-                () => _validator.Validate(dto));
+            var result = _validator.TestValidate(dto);
+
+            result.ShouldHaveValidationErrorFor(x => x.Email);
         }
     }
 }

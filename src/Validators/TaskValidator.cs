@@ -1,33 +1,25 @@
-﻿using TodoAPI.DTOs;
+﻿using FluentValidation;
+using TodoAPI.DTOs;
 
 namespace TodoAPI.Validators
 {
-    public interface IValidator<T>
+    public class TaskValidator : AbstractValidator<TaskDTO>
     {
-        void Validate(T value);
-    }
-
-    public class TaskValidator: IValidator<TaskDTO>
-    {
-        public void Validate(TaskDTO task)
+        public TaskValidator()
         {
-            if (string.IsNullOrWhiteSpace(task.Title))
-                throw new ArgumentException("У задачи должно быть название");
-
-            if (task.Title.Length > 140)
-                throw new ArgumentException("Название задачи не должно превышать 140 символов");
+            RuleFor(task => task.Title)
+                .NotEmpty().WithMessage("У задачи должно быть название")
+                .MaximumLength(140).WithMessage("Название задачи не должно превышать 140 символов");
         }
     }
 
-    public class UpdatedTaskValidator: IValidator<UpdateTaskDTO>
+    public class UpdatedTaskValidator : AbstractValidator<UpdateTaskDTO>
     {
-        public void Validate(UpdateTaskDTO task)
+        public UpdatedTaskValidator()
         {
-            if (string.IsNullOrWhiteSpace(task.Title))
-                throw new ArgumentException("У задачи должно быть название");
-
-            if (task.Title.Length > 140)
-                throw new ArgumentException("Название задачи не должно превышать 140 символов");
+            RuleFor(task => task.Title)
+                .NotEmpty().WithMessage("У задачи должно быть название")
+                .MaximumLength(140).WithMessage("Название задачи не должно превышать 140 символов");
         }
     }
 }

@@ -3,6 +3,7 @@ using TodoAPI.Entities;
 using TodoAPI.DTOs;
 using TodoAPI.Validators;
 using Serilog;
+using FluentValidation;
 
 namespace TodoAPI.Services.UserServices
 {
