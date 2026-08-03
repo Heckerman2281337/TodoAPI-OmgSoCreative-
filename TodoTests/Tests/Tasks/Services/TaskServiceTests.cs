@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using FluentValidation;
+using Moq;
 using TodoAPI;
 using TodoAPI.DTOs;
 using TodoAPI.Entities;
