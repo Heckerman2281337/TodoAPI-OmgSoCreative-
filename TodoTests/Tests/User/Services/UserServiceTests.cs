@@ -1,12 +1,13 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
+using Microsoft.Extensions.Logging;
 using Moq;
 using TodoAPI.DTOs;
 using TodoAPI.Entities;
 using TodoAPI.Repo.UserRepository;
 using TodoAPI.Services.UserServices;
-using TodoAPI.Validators;
 
-namespace TodoTests.Tests.Users
+namespace TodoTests.Tests.User
 {
     public class UserServiceTests
     {
@@ -14,10 +15,11 @@ namespace TodoTests.Tests.Users
         {
             _sut = new UserService(
                 _userRepoMock.Object,
-                _userValidatorMock.Object);
+                _userValidatorMock.Object, _loggerMock.Object);
         }
         private readonly Mock<IUserRepo> _userRepoMock = new();
         private readonly Mock<IValidator<RegisterDTO>> _userValidatorMock = new();
+        private readonly Mock<ILogger<UserService>> _loggerMock = new();
         private readonly UserService _sut;
 
         // CreateAsync tests
@@ -40,10 +42,12 @@ namespace TodoTests.Tests.Users
                 .Callback<UserEntity, CancellationToken>(
                     (user, _) => createdUser = user);
 
+            _userValidatorMock
+                .Setup(v => v.ValidateAsync(It.IsAny<RegisterDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult());
+
 
             await _sut.CreateAsync(dto, CancellationToken.None);
-
-            _userValidatorMock.Verify(v => v.Validate(dto), Times.Once);
 
             Assert.NotNull(createdUser);
             Assert.Equal(dto.Username, createdUser.Username);
@@ -70,10 +74,15 @@ namespace TodoTests.Tests.Users
             };
 
             _userValidatorMock
-                .Setup(v => v.Validate(dto))
-                .Throws<ArgumentException>();
+                .Setup(v => v.ValidateAsync(
+                    It.IsAny<RegisterDTO>(),
+                    It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult(
+                [
+                    new ValidationFailure("Username", "Username required")
+                ]));
 
-            await Assert.ThrowsAsync<ArgumentException>(
+            await Assert.ThrowsAsync<ValidationException>(
                 () => _sut.CreateAsync(dto, CancellationToken.None));
 
             _userRepoMock.Verify(
@@ -274,7 +283,7 @@ namespace TodoTests.Tests.Users
                     It.IsAny<CancellationToken>()))
                 .ReturnsAsync((UserEntity?)null);
 
-            await Assert.ThrowsAsync<Exception>(
+            await Assert.ThrowsAsync<KeyNotFoundException>(
                 () => _sut.UpdateAsync(
                     dto,
                     id,

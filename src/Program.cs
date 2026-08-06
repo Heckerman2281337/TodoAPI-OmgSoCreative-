@@ -1,8 +1,5 @@
-using Microsoft.AspNetCore.OpenApi;
 using TodoAPI.Repo;
-using Microsoft.EntityFrameworkCore.Design;
 using TodoAPI.Services;
-using Microsoft.OpenApi.Models;
 using TodoAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -10,7 +7,7 @@ using Serilog.Events;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async void Main(string[] args)
     {
 
         Log.Logger = new LoggerConfiguration()
@@ -24,14 +21,13 @@ public class Program
             Log.Information("Старт приложения");
 
             var builder = WebApplication.CreateBuilder();
+            builder.Host.UseSerilog();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerWithAuth();
             builder.Services.AddAuth(builder.Configuration);
             builder.Services.AddDataAcces(builder.Configuration);
             builder.Services.AddBuisnessLogic();
-            builder.Services.AddControllers();
-
 
             var app = builder.Build();
 
@@ -44,7 +40,7 @@ public class Program
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
-                db.Database.Migrate();
+                await db.Database.MigrateAsync();
             }
 
             app.UseMiddleware<ExceptionMiddleware>();

@@ -7,7 +7,7 @@ namespace TodoAPI.Repo
     {
         public DbSet<TaskEntity> Tasks { get; set; }
         public DbSet<UserEntity> Users { get; set; }
-
+        public DbSet<RefreshTokenEntity> Tokens { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(TodoDbContext).Assembly);

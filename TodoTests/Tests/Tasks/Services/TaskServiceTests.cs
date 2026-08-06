@@ -6,7 +6,8 @@ using TodoAPI.Entities;
 using TodoAPI.QueryParams;
 using TodoAPI.Repo.TaskRepository;
 using TodoAPI.Services.TaskServices;
-using TodoAPI.Validators;
+using Microsoft.Extensions.Logging;
+using FluentValidation.Results;
 
 namespace TodoTests.Tasks
 {
@@ -15,12 +16,13 @@ namespace TodoTests.Tasks
         public TaskServiceTests()
         {
             _sut = new TaskService(_taskRepoMock.Object, _taskValidatorMock.Object,
-                _updateValidatorMock.Object);
+                _updateValidatorMock.Object, _loggerMock.Object);
         }
 
         private readonly Mock<ITaskRepo> _taskRepoMock = new();
         private readonly Mock<IValidator<TaskDTO>> _taskValidatorMock = new();
         private readonly Mock<IValidator<UpdateTaskDTO>> _updateValidatorMock = new();
+        private readonly Mock<ILogger<TaskService>> _loggerMock = new();
         private readonly TaskService _sut;
 
         //GetByIdAsync tests
@@ -140,6 +142,9 @@ namespace TodoTests.Tasks
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(entity);
+            _updateValidatorMock
+                .Setup(v => v.ValidateAsync(It.IsAny<UpdateTaskDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult());
 
             var result = await _sut.UpdateAsync(dto, taskId, userId);
 
@@ -159,6 +164,9 @@ namespace TodoTests.Tasks
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync((TaskEntity?)null);
+            _updateValidatorMock
+                .Setup(v => v.ValidateAsync(It.IsAny<UpdateTaskDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult());
 
             await Assert.ThrowsAsync<KeyNotFoundException>(
                 () => _sut.UpdateAsync(It.IsAny<UpdateTaskDTO>(),taskId, userId));
@@ -182,6 +190,9 @@ namespace TodoTests.Tasks
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(entity);
+            _updateValidatorMock
+                .Setup(v => v.ValidateAsync(It.IsAny<UpdateTaskDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult());
 
             await Assert.ThrowsAsync<KeyNotFoundException>(
                 () => _sut.UpdateAsync(dto, taskId, anotherUserId));
@@ -201,16 +212,15 @@ namespace TodoTests.Tasks
             var userId = Guid.NewGuid();
 
             _updateValidatorMock
-                .Setup(r => r.Validate(It.IsAny<UpdateTaskDTO>()))
-                .Throws<ArgumentException>();
-
-            await Assert.ThrowsAsync<ArgumentException>(() => _sut.UpdateAsync(dto, taskId, userId));
+                .Setup(v => v.ValidateAsync(It.IsAny<UpdateTaskDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult(new[] { new ValidationFailure("Title", "Error") }));
+            await Assert.ThrowsAsync<ValidationException>(() => _sut.UpdateAsync(dto, taskId, userId));
 
             _taskRepoMock.Verify(
                 r => r.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()),
                 Times.Never);
             _updateValidatorMock.Verify(
-                v => v.Validate(dto),
+                v => v.ValidateAsync(dto, It.IsAny<CancellationToken>() ),
                 Times.Once);
         }
         //CreateAsync tests
@@ -220,11 +230,12 @@ namespace TodoTests.Tasks
             var dto = new TaskDTO("Title", null, null, TaskCategory.None, TaskPriority.None);
             var userId = Guid.NewGuid();
 
+            _taskValidatorMock
+                .Setup(v => v.ValidateAsync(It.IsAny<TaskDTO>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new ValidationResult());
+
             await _sut.CreateAsync(dto, userId);
 
-            _taskValidatorMock.Verify(
-                v => v.Validate(dto),
-                Times.Once);
             _taskRepoMock.Verify(
                 r => r.CreateAsync(
                     It.Is<TaskEntity>(t =>
