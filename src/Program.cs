@@ -23,19 +23,15 @@ public class Program
             var builder = WebApplication.CreateBuilder();
             builder.Host.UseSerilog();
 
+            builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerWithAuth();
             builder.Services.AddAuth(builder.Configuration);
+            builder.Services.AddAuthorization();
             builder.Services.AddDataAcces(builder.Configuration);
             builder.Services.AddBuisnessLogic();
 
             var app = builder.Build();
-
-            /*if (app.Environment.IsDevelopment())
-             {
-                 app.MapOpenApi();
-             }
-            */
 
             using (var scope = app.Services.CreateScope())
             {
@@ -48,7 +44,11 @@ public class Program
             app.UseAuthorization();
             app.UseHttpsRedirection();
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI v1");
+                c.RoutePrefix = "swagger";
+            });
             app.MapControllers();
             app.Run();
         }
