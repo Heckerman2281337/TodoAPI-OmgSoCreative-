@@ -13,8 +13,8 @@ public class Program
         Log.Logger = new LoggerConfiguration()
                     .WriteTo.Console()
                     .MinimumLevel.Information()
-                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                    .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", LogEventLevel.Warning)
+                    //.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                    //.MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", LogEventLevel.Warning)
                     .CreateLogger();
         try
         {
@@ -33,6 +33,9 @@ public class Program
             builder.Services.AddDataAcces(builder.Configuration);
             builder.Services.AddBuisnessLogic();
             Log.Information("Сервисы зарегистрированы");
+
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+            builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
             var app = builder.Build();
             Log.Information("App создан");
