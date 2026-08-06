@@ -20,7 +20,7 @@ public class Program
         {
             Log.Information("Старт приложения");
 
-            var builder = WebApplication.CreateBuilder();
+            var builder = WebApplication.CreateBuilder(args);
             builder.Host.UseSerilog();
 
             builder.Services.AddControllers();
@@ -42,7 +42,6 @@ public class Program
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseHttpsRedirection();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -50,7 +49,7 @@ public class Program
                 c.RoutePrefix = "swagger";
             });
             app.MapControllers();
-            app.Run();
+            await app.RunAsync();
         }
         catch (Exception ex)
         {
