@@ -21,6 +21,8 @@ public class Program
             Log.Information("Старт приложения");
 
             var builder = WebApplication.CreateBuilder(args);
+            Log.Information("Builder создан");
+
             builder.Host.UseSerilog();
 
             builder.Services.AddControllers();
@@ -30,13 +32,19 @@ public class Program
             builder.Services.AddAuthorization();
             builder.Services.AddDataAcces(builder.Configuration);
             builder.Services.AddBuisnessLogic();
+            Log.Information("Сервисы зарегистрированы");
 
             var app = builder.Build();
+            Log.Information("App создан");
 
             using (var scope = app.Services.CreateScope())
             {
+                Log.Information("Запуск миграций");
+
                 var db = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
                 await db.Database.MigrateAsync();
+
+                Log.Information("Миграции завершены");
             }
 
             app.UseMiddleware<ExceptionMiddleware>();
