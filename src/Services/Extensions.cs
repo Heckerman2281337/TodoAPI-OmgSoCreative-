@@ -14,9 +14,12 @@ namespace TodoAPI.Services
             //Stateless validators
             serviceCollection.AddValidatorsFromAssemblyContaining<TaskValidator>();
 
+            serviceCollection.AddHostedService<TokenCleanUpService>();
+
             serviceCollection.AddScoped<IUserService, UserService>();
             serviceCollection.AddScoped<ITaskService, TaskService>();
             serviceCollection.AddScoped<IAuthService, AuthService>();
+            serviceCollection.AddScoped<ITokenService, TokenService>();
             return serviceCollection;
         }
     }

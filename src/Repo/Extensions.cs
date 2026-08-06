@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoAPI.Repo.TaskRepository;
+using TodoAPI.Repo.TokenRepository;
 using TodoAPI.Repo.UserRepository;
 
 namespace TodoAPI.Repo
@@ -10,6 +11,7 @@ namespace TodoAPI.Repo
         {
             serviceCollection.AddScoped<ITaskRepo, TaskRepo>();
             serviceCollection.AddScoped<IUserRepo, UserRepo>();
+            serviceCollection.AddScoped<ITokenRepo, TokenRepo>();
 
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
