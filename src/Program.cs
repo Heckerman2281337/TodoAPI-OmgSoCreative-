@@ -48,15 +48,22 @@ public class Program
             }
 
             app.UseMiddleware<ExceptionMiddleware>();
+            Log.Information("ExceptionMiddleware OK");
             app.UseAuthentication();
+            Log.Information("Authentication OK");
             app.UseAuthorization();
+            Log.Information("Authorization OK");
             app.UseSwagger();
+            Log.Information("Swagger OK");
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI v1");
                 c.RoutePrefix = "swagger";
             });
+            Log.Information("SwaggerUI OK");
             app.MapControllers();
+            Log.Information("Controllers mapped");
+            Log.Information("Перед RunAsync");
             await app.RunAsync();
         }
         catch (Exception ex)
