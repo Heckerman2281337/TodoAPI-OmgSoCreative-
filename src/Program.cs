@@ -53,7 +53,7 @@ public class Program
         }
         catch (Exception ex)
         {
-            Log.Fatal(ex.Message, ex.StackTrace, "Приложение упало с ошибкой {Ex}");
+            Log.Fatal(ex, "Приложение упало");
         }
         finally
         {
