@@ -10,7 +10,7 @@ Pet project that I use to practice ASP.NET dev. Project started as simple CRUD A
 ### DB
 - PostgreSQL
 ### Auth
-- JWT
+- JWT (refresh + access)
 - Bcrpyt
 ### Testing
 - xUnit
