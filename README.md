@@ -41,6 +41,8 @@ https://todoapi-omgsocreative-production.up.railway.app/swagger
 |--------|----------|----------------|-------------|
 | POST | `/User/register` | ❌ | Register a new user |
 | POST | `/User/login` | ❌ | Login and receive JWT |
+| POST | `/User/refresh` | ❌ | Refresh token |
+| POST | `/User/logout` | ✅ | Logout from account |
 | GET | `/Task` | ✅ | Get all tasks |
 | POST | `/Task` | ✅ | Create a new task |
 | PATCH | `/Task/{id}` | ✅ | Update a task |
