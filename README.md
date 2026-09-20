@@ -1,4 +1,4 @@
-# !!CURRENTLY DOESN'T DEPLOYED CAUSE IM BROKE!!
+# !!CURRENTLY NOT DEPLOYED CAUSE IM BROKE!!
 ## TodoAPI
 Pet project that I use to practice ASP.NET dev. Project started as simple CRUD API. Project evolving with authentication, testing, Docker, etc.
 
