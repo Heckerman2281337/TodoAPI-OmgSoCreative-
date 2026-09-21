@@ -22,30 +22,22 @@ namespace TodoTests.Tests.User
         private readonly AuthService _sut;
 
         [Fact]
-        public async Task LoginAsync_ThrowsArgumentException_WhenUserDoesntExist()
+        public async Task LoginAsync_ThrowsUnauthorizedAccessException_WhenUserDoesntExist()
         {
-            var dto = new LoginDTO
-            {
-                Username = "admin",
-                Password = "123"
-            };
+            var dto = new LoginDTO("admin", "123");
 
             _userRepoMock
                 .Setup(r => r.GetByUsernameAsync(dto.Username, It.IsAny<CancellationToken>()))
                 .ReturnsAsync((UserEntity?)null);
 
-            await Assert.ThrowsAsync<ArgumentException>(
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(
                 () => _sut.LoginAsync(dto));
         }
 
         [Fact]
-        public async Task LoginAsync_ThrowsArgumentException_WhenPasswordInvalid()
+        public async Task LoginAsync_ThrowsUnauthorizedAccessException_WhenPasswordInvalid()
         {
-            var dto = new LoginDTO
-            {
-                Username = "admin",
-                Password = "wrong"
-            };
+            var dto = new LoginDTO("admin", "wrong");
 
             var user = new UserEntity(
                 "admin",
@@ -55,18 +47,14 @@ namespace TodoTests.Tests.User
                 .Setup(r => r.GetByUsernameAsync(dto.Username, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(user);
 
-            await Assert.ThrowsAsync<ArgumentException>(
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(
                 () => _sut.LoginAsync(dto));
         }
 
         [Fact]
         public async Task LoginAsync_ReturnsLoginResponse()
         {
-            var dto = new LoginDTO
-            {
-                Username = "admin",
-                Password = "123"
-            };
+            var dto = new LoginDTO("adming", "123");
 
             var user = new UserEntity(
                 "admin",

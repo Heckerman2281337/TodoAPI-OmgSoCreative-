@@ -26,13 +26,9 @@ namespace TodoTests.Tests.User
         [Fact]
         public async Task CreateAsync_CreatesUser_WhenDataValid()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Password123",
-                ConfirmedPassword = "Password123",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("User123", "Password123",
+                "Password123", "user@test.com");
+
             UserEntity? createdUser = null;
 
             _userRepoMock
@@ -65,13 +61,8 @@ namespace TodoTests.Tests.User
         [Fact]
         public async Task CreateAsync_Throws_WhenValidationFails()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Password123",
-                ConfirmedPassword = "Password123",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("User123", "Password123",
+                        "Password123", "user@test.com");
 
             _userValidatorMock
                 .Setup(v => v.ValidateAsync(
@@ -231,11 +222,8 @@ namespace TodoTests.Tests.User
         public async Task UpdateAsync_UpdatesUser_WhenUserExists()
         {
             var id = Guid.NewGuid();
-            var dto = new UpdateUserDTO
-            {
-                Username = "NewUsername",
-                Password = "NewPassword123"
-            };
+            var dto = new UpdateUserDTO("NewUsername", "NewPassword123",
+                "NewPassword123");
             var entity = new UserEntity(
                 "OldUsername",
                 "OldHash",
@@ -271,11 +259,8 @@ namespace TodoTests.Tests.User
         public async Task UpdateAsync_Throws_WhenUserDoesntExist()
         {
             var id = Guid.NewGuid();
-            var dto = new UpdateUserDTO
-            {
-                Username = "NewUsername",
-                Password = "Password123"
-            };
+            var dto = new UpdateUserDTO("NewUsername", "NewPassword123",
+                "NewPassword123");
 
             _userRepoMock
                 .Setup(r => r.GetByIdAsync(

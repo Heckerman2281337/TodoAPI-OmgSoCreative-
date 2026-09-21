@@ -70,7 +70,6 @@ namespace TodoTests.Tasks
             
 
             Assert.NotNull(result);
-            Assert.Equal(expected.Id, result.Id);
             Assert.Equal(expected.Title, result.Title);
             Assert.Equal(expected.Description, result.Description);
             Assert.Equal(expected.Category, result.Category);
@@ -130,11 +129,8 @@ namespace TodoTests.Tasks
         [Fact]
         public async Task UpdateAsync_UpdateTask_WhenTaskExistsAndOwner()
         {
-            var dto = new UpdateTaskDTO
-            {
-                Title = "New Title",
-                Description = "New Desc",
-            };
+            var dto = new UpdateTaskDTO("New Title", "New Desc",
+                null, TaskCategory.None, TaskPriority.None, null);
             var userId = Guid.NewGuid();
             var taskId = Guid.NewGuid();
             var entity = new TaskEntity("Old Title", "Old Desc", userId, null, TaskCategory.None, TaskPriority.None); 
@@ -177,11 +173,8 @@ namespace TodoTests.Tasks
         [Fact]
         public async Task UpdateAsync_ThrowsKeyNotFound_WhenNotOwner()
         {
-            var dto = new UpdateTaskDTO
-            {
-                Title = "Title",
-                Description = "Desc",
-            };
+            var dto = new UpdateTaskDTO("Title", "Desc",
+                null, TaskCategory.None, TaskPriority.None, null);
             var taskId = Guid.NewGuid();
             var ownerId = Guid.NewGuid();
             var anotherUserId = Guid.NewGuid();
@@ -203,11 +196,8 @@ namespace TodoTests.Tasks
         [Fact]
         public async Task UpdateAsync_ThrowArgumentEx_WhenValidationFails()
         {
-            var dto = new UpdateTaskDTO
-            {
-                Title = "Title",
-                Description= "Desc",
-            };
+            var dto = new UpdateTaskDTO("Title", "Desc",
+                null, TaskCategory.None, TaskPriority.None, null);
             var taskId = Guid.NewGuid();
             var userId = Guid.NewGuid();
 

@@ -13,8 +13,8 @@ public class Program
         Log.Logger = new LoggerConfiguration()
                     .WriteTo.Console()
                     .MinimumLevel.Information()
-                    //.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                    //.MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", LogEventLevel.Warning)
+                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                    .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", LogEventLevel.Warning)
                     .CreateLogger();
         try
         {

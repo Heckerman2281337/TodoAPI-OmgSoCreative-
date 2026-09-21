@@ -2,15 +2,7 @@
 
 namespace TodoAPI.DTOs
 {
-    public class UpdateTaskDTO
-    {
-        public string Title { get; init; } = string.Empty;
-        public string? Description { get; init; }
-        public DateTime? Deadline { get; init; }
-
-        public TaskCategory Category { get; init; }
-        public TaskPriority Priority { get; init; }
-        
-        public bool? IsCompleted { get; init; }
-    }
+    public record UpdateTaskDTO(
+        string Title, string? Description, DateTime? Deadline,
+        TaskCategory Category, TaskPriority Priority, bool? IsCompleted);
 }

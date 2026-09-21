@@ -1,15 +1,17 @@
-﻿using Serilog;
+﻿using FluentValidation;
+using Serilog;
 
 namespace TodoAPI.Middlewares
 {
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private static readonly Serilog.ILogger _log = Log.ForContext<ExceptionMiddleware>();
+        private readonly ILogger<ExceptionMiddleware> _log;
 
-        public ExceptionMiddleware(RequestDelegate next)
+        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
         {
             _next = next;
+            _log = logger;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -20,7 +22,7 @@ namespace TodoAPI.Middlewares
             }
             catch (Exception ex)
             {
-                _log.Error(ex, "Произошло необработанное исключение в middleware: {Message}", ex.Message);
+                _log.LogError(ex, "Произошло необработанное исключение в middleware: {Message}", ex.Message);
                 await HandleExceptionAsync(context, ex);
             }
         }
@@ -33,6 +35,7 @@ namespace TodoAPI.Middlewares
                 ArgumentException => (StatusCodes.Status400BadRequest, exception.Message),
                 UnauthorizedAccessException => (StatusCodes.Status401Unauthorized, "Доступ запрещен."),
                 KeyNotFoundException => (StatusCodes.Status404NotFound, "Ресурс не найден."),
+                ValidationException => (StatusCodes.Status400BadRequest, exception.Message),
 
                 _ => (StatusCodes.Status500InternalServerError, "Внутренняя ошибка сервера.")
             };
@@ -44,7 +47,7 @@ namespace TodoAPI.Middlewares
                 status = statusCode,
                 error = message,
             };
-            _log.Information("Отправлен ответ клиенту с ошибкой: {Error}, статус: {Status}", response.error, response.status);
+            Log.Information("Отправлен ответ клиенту с ошибкой: {Error}, статус: {Status}", response.error, response.status);
             await context.Response.WriteAsJsonAsync(response);
         }
     }

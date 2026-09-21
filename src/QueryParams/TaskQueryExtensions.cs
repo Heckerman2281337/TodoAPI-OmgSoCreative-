@@ -49,6 +49,7 @@ namespace TodoAPI.QueryParams
             return orderBy switch
             {
                 nameof(TaskEntity.IsCompleted) => x => x.IsCompleted,
+                nameof(TaskEntity.Priority) => x => x.Priority,
                 nameof(TaskEntity.Updated) => x => x.Updated,
                 nameof(TaskEntity.Created) => x => x.Created,
                 _ => x => x.Title
