@@ -11,13 +11,8 @@ namespace TodoTests.User
         [Fact]
         public void Validate_DoesNotThrow_WhenUserIsValid()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Password123",
-                ConfirmedPassword = "Password123",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("User123", "Password123",
+                "Password123", "user@test.com");
 
             var result = _validator.TestValidate(dto);
 
@@ -28,13 +23,8 @@ namespace TodoTests.User
         [Fact]
         public void Validate_Throws_WhenUsernameIsEmpty()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "",
-                Password = "Password123",
-                ConfirmedPassword = "Password123",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("", "Password123",
+                "Password123", "user@test.com");
 
             var result = _validator.TestValidate(dto);
 
@@ -45,13 +35,8 @@ namespace TodoTests.User
         [Fact]
         public void Validate_Throws_WhenPasswordTooShort()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Pass1",
-                ConfirmedPassword = "Pass1",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("User123", "Pass1",
+                "Pass1", "user@test.com");
 
             var result = _validator.TestValidate(dto);
 
@@ -62,13 +47,8 @@ namespace TodoTests.User
         [Fact]
         public void Validate_Throws_WhenPasswordsDoNotMatch()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Password123",
-                ConfirmedPassword = "Password321",
-                Email = "user@test.com"
-            };
+            var dto = new RegisterDTO("User123", "Password123",
+                    "Password321", "user@test.com");
 
             var result = _validator.TestValidate(dto);
 
@@ -79,13 +59,8 @@ namespace TodoTests.User
         [Fact]
         public void Validate_Throws_WhenEmailInvalid()
         {
-            var dto = new RegisterDTO
-            {
-                Username = "User123",
-                Password = "Password123",
-                ConfirmedPassword = "Password123",
-                Email = "wrong-email"
-            };
+            var dto = new RegisterDTO("User123", "Password123",
+                    "Password321", "wrong-email");
 
             var result = _validator.TestValidate(dto);
 

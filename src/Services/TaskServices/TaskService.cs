@@ -3,7 +3,6 @@ using TodoAPI.Entities;
 using TodoAPI.DTOs;
 using TodoAPI.QueryParams;
 using FluentValidation;
-using Microsoft.Extensions.Logging;
 
 namespace TodoAPI.Services.TaskServices
 {
@@ -52,7 +51,9 @@ namespace TodoAPI.Services.TaskServices
                     " не принадлежит ему", userId);
                 throw new KeyNotFoundException("Задача не найдена.");
             }
+
             var taskResponse = new TaskResponseDTO(taskEntity);
+            
             logger.LogInformation("Задача {TaskId} возвращается пользователю {UserId}", taskEntity.Id, userId);
             return taskResponse;
         }
