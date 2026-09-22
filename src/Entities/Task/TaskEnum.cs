@@ -2,7 +2,6 @@
 {
     public enum TaskCategory
     {
-        None = 0,
         Work = 1,
         Personal = 2,
         HealthAndSport = 3,
@@ -10,7 +9,6 @@
     }
     public enum TaskPriority
     {
-        None = 0,
         Low = 1,
         Medium = 2,
         High = 3,

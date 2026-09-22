@@ -4,8 +4,8 @@
     {
         private TaskEntity(){ Title = null!; }
 
-        public TaskEntity(string title, string description, Guid userId, DateTime? deadline, 
-            TaskCategory category, TaskPriority priority) 
+        public TaskEntity(string title, string? description, Guid userId, DateTime? deadline, 
+            TaskCategory? category, TaskPriority? priority) 
         { 
             Title = title;
             Description = description;
@@ -31,8 +31,8 @@
        
         public bool? IsCompleted { get; private set; }
         
-        public TaskCategory Category { get; private set; }
-        public TaskPriority Priority { get; private set; }
+        public TaskCategory? Category { get; private set; }
+        public TaskPriority? Priority { get; private set; }
         public TaskExparation Exparation =>
                 Deadline.HasValue && Deadline.Value <= DateTime.UtcNow
                     ? TaskExparation.Expired
@@ -43,7 +43,7 @@
 
 
         public void Update(string title, string? description, bool? isCompleted,
-            TaskCategory category, TaskPriority priority, DateTime? deadline)
+            TaskCategory? category, TaskPriority? priority, DateTime? deadline)
         {
             Title = title;
             Description = description;

@@ -45,7 +45,7 @@ namespace TodoTests.Tasks
         {
             var taskId = Guid.NewGuid();
             var userId = Guid.NewGuid();
-            var entity = new TaskEntity("Title","Desc", Guid.NewGuid(), null, TaskCategory.None, TaskPriority.None);
+            var entity = new TaskEntity("Title","Desc", Guid.NewGuid(), null, null, null);
             
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
@@ -59,7 +59,7 @@ namespace TodoTests.Tasks
         {
             var taskId = Guid.NewGuid();    
             var userId = Guid.NewGuid();
-            var entity = new TaskEntity("Title", "Desc", userId, null, TaskCategory.None, TaskPriority.None);
+            var entity = new TaskEntity("Title", "Desc", userId, null, null, null);
             var expected = new TaskResponseDTO(entity);
 
             _taskRepoMock
@@ -82,7 +82,7 @@ namespace TodoTests.Tasks
         {
             var taskId = Guid.NewGuid();
             var userId = Guid.NewGuid();
-            var entity = new TaskEntity("Title", "Desc", userId, null, TaskCategory.None, TaskPriority.None);
+            var entity = new TaskEntity("Title", "Desc", userId, null, null, null);
 
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
@@ -113,7 +113,7 @@ namespace TodoTests.Tasks
         {
             var taskId = Guid.NewGuid();
             var userId = Guid.NewGuid();
-            var entity = new TaskEntity("Title", "Desc", Guid.NewGuid(), null, TaskCategory.None, TaskPriority.None);
+            var entity = new TaskEntity("Title", "Desc", Guid.NewGuid(), null, null, null);
 
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
@@ -130,10 +130,10 @@ namespace TodoTests.Tasks
         public async Task UpdateAsync_UpdateTask_WhenTaskExistsAndOwner()
         {
             var dto = new UpdateTaskDTO("New Title", "New Desc",
-                null, TaskCategory.None, TaskPriority.None, null);
+                null, null, null, null);
             var userId = Guid.NewGuid();
             var taskId = Guid.NewGuid();
-            var entity = new TaskEntity("Old Title", "Old Desc", userId, null, TaskCategory.None, TaskPriority.None); 
+            var entity = new TaskEntity("Old Title", "Old Desc", userId, null, null, null); 
             
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
@@ -174,11 +174,11 @@ namespace TodoTests.Tasks
         public async Task UpdateAsync_ThrowsKeyNotFound_WhenNotOwner()
         {
             var dto = new UpdateTaskDTO("Title", "Desc",
-                null, TaskCategory.None, TaskPriority.None, null);
+                null, null, null, null);
             var taskId = Guid.NewGuid();
             var ownerId = Guid.NewGuid();
             var anotherUserId = Guid.NewGuid();
-            var entity = new TaskEntity("Title", "Desc", Guid.NewGuid(), null, TaskCategory.None, TaskPriority.None);
+            var entity = new TaskEntity("Title", "Desc", Guid.NewGuid(), null, null, null);
 
             _taskRepoMock
                 .Setup(r => r.GetByIdAsync(taskId, It.IsAny<CancellationToken>()))
@@ -197,7 +197,7 @@ namespace TodoTests.Tasks
         public async Task UpdateAsync_ThrowArgumentEx_WhenValidationFails()
         {
             var dto = new UpdateTaskDTO("Title", "Desc",
-                null, TaskCategory.None, TaskPriority.None, null);
+                null, null, null, null);
             var taskId = Guid.NewGuid();
             var userId = Guid.NewGuid();
 
@@ -217,7 +217,7 @@ namespace TodoTests.Tasks
         [Fact]
         public async Task CreateAsync_CreateTask()
         {
-            var dto = new TaskDTO("Title", null, null, TaskCategory.None, TaskPriority.None);
+            var dto = new TaskDTO("Title", null, null, null, null);
             var userId = Guid.NewGuid();
 
             _taskValidatorMock
@@ -230,7 +230,7 @@ namespace TodoTests.Tasks
                 r => r.CreateAsync(
                     It.Is<TaskEntity>(t =>
                         t.Title == dto.Title &&
-                        t.Description == string.Empty &&
+                        t.Description == dto.Description &&
                         t.UserId == userId &&
                         t.Category == dto.Category &&
                         t.Priority == dto.Priority),
@@ -254,16 +254,16 @@ namespace TodoTests.Tasks
                 "Desc 1",
                 userId,
                 null,
-                TaskCategory.None,
-                TaskPriority.None),
+                null,
+                null),
 
             new TaskEntity(
                 "Task 2",
                 "Desc 2",
                 userId,
                 null,
-                TaskCategory.None,
-                TaskPriority.None)
+                null,
+                null)
             };
 
             var pagedResult = new PagedResult<TaskEntity>(

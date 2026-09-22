@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using TodoAPI.DTOs;
+﻿using TodoAPI.DTOs;
 using FluentValidation;
 
 namespace TodoAPI.Validators

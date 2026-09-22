@@ -18,6 +18,7 @@ namespace TodoAPI.Services.TaskServices
             ,TaskSortParams taskSort, TaskPaginationParams taskPagination
             ,CancellationToken cancellationToken = default)
         {
+            //TODO - make sure its users tasks
             var result = await taskRepository.GetAllAsync(userId, taskFilter, taskSort, taskPagination, cancellationToken);
             var taskResponses = result.Data.Select(task => new TaskResponseDTO(task)).ToArray();
             logger.LogInformation("Выдача всех задач для пользователя: {UserId}", userId);
@@ -30,7 +31,7 @@ namespace TodoAPI.Services.TaskServices
             if (!validation.IsValid)
                 throw new ValidationException(validation.Errors);
 
-            var task = new TaskEntity(dto.Title, dto.Description ?? string.Empty, 
+            var task = new TaskEntity(dto.Title, dto.Description, 
                 userId, dto.Deadline, dto.Category, dto.Priority);
             
             await taskRepository.CreateAsync(task, cancellationToken);
@@ -98,6 +99,7 @@ namespace TodoAPI.Services.TaskServices
                     " ему не принадлежит", userId);
                 throw new KeyNotFoundException("Задача не найдена.");
             }
+
             taskEntity.Update(dto.Title, dto.Description, dto.IsCompleted,
                 dto.Category, dto.Priority, dto.Deadline);
             await taskRepository.UpdateAsync(taskEntity, cancellationToken);

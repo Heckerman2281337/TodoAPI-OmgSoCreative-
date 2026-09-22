@@ -16,8 +16,8 @@ namespace TodoTests.Tasks
                 "My task",
                 null,
                 null,
-                TaskCategory.None,
-                TaskPriority.None);
+                null,
+                null);
 
             var result = _validator.TestValidate(dto);
 
@@ -32,8 +32,8 @@ namespace TodoTests.Tasks
                 "",
                 null,
                 null,
-                TaskCategory.None,
-                TaskPriority.None);
+                null,
+                null);
 
             var result = _validator.TestValidate(dto);
 
@@ -48,8 +48,8 @@ namespace TodoTests.Tasks
                 new string('a', 141),
                 null,
                 null,
-                TaskCategory.None,
-                TaskPriority.None);
+                null,
+                null);
 
 
             var result = _validator.TestValidate(dto);
