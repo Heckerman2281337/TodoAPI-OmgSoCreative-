@@ -6,8 +6,8 @@ namespace TodoAPI.DTOs
         string Title, string? Description,
         DateTime CreatedAt, DateTime? Deadline,
         DateTime? Updated, bool? IsCompleted,
-        TaskCategory Category, TaskPriority Priority,
-        TaskExparation Exparation)
+        TaskCategory? Category, TaskPriority? Priority,
+        TaskExparation? Exparation)
     {
         public TaskResponseDTO(TaskEntity taskEntity) : this(
             taskEntity.Title, taskEntity.Description, taskEntity.Created,
