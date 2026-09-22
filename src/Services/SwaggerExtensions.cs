@@ -13,6 +13,7 @@ namespace TodoAPI.Services
                     Name = "Authorization",
                     Type = SecuritySchemeType.Http,
                     Scheme = "Bearer",
+                    BearerFormat = "JWT",
                     In = ParameterLocation.Header,
                     Description = "Введите JWT токен"
                 });
