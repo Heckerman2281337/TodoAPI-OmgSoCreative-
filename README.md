@@ -18,6 +18,8 @@ Pet project that I use to practice ASP.NET dev. Project started as simple CRUD A
 - Moq
 ### Logging
 - Serilog
+### Validation
+- FluentValidation
 ### Infrastructure
 - Docker/Docker Compose
 ### Documentation
