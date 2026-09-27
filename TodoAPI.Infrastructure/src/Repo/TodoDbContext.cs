@@ -1,0 +1,17 @@
+﻿using Microsoft.EntityFrameworkCore;
+using TodoAPI.Domain.Entities;
+
+namespace TodoAPI.Infrastructure
+{
+    public class TodoDbContext(DbContextOptions<TodoDbContext> options) : DbContext(options)
+    {
+        public DbSet<TaskEntity> Tasks { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<RefreshTokenEntity> Tokens { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TodoDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+}

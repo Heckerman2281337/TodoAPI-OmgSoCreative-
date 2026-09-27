@@ -1,11 +1,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
 WORKDIR /app
 
-COPY *.csproj ./
-RUN dotnet restore
+COPY TodoAPI.WebAPI/*.csproj TodoAPI.WebAPI/
+COPY TodoAPI.Application/*.csproj TodoAPI.Application/
+COPY TodoAPI.Domain/*.csproj TodoAPI.Domain/
+COPY TodoAPI.Infrastructure/*.csproj TodoAPI.Infrastructure/
+
+RUN dotnet restore TodoAPI.WebAPI/TodoAPI.WebAPI.csproj
 
 COPY . ./
-RUN dotnet publish TodoAPI.csproj -c Release -o out
+RUN dotnet publish TodoAPI.WebAPI/TodoAPI.WebAPI.csproj -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 
@@ -17,4 +21,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "TodoAPI.dll"]
+ENTRYPOINT ["dotnet", "TodoAPI.WebAPI.dll"]

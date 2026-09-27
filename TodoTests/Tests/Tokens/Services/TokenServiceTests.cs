@@ -1,9 +1,8 @@
 ﻿using Moq;
-using TodoAPI.Repo.UserRepository;
-using TodoAPI.Repo.TokenRepository;
-using TodoAPI.Services;
+using TodoAPI.Application.Repo;
+using TodoAPI.Application.Services;
 using Microsoft.Extensions.Configuration;
-using TodoAPI.Entities;
+using TodoAPI.Domain.Entities;
 
 namespace TodoTests.Tokens
 {

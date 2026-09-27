@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
-using TodoAPI.DTOs;
-using TodoAPI.Entities;
-using TodoAPI.Repo.UserRepository;
-using TodoAPI.Services.AuthenticationService;
+using TodoAPI.Application.DTOs;
+using TodoAPI.Domain.Entities;
+using TodoAPI.Application.Repo;
+using TodoAPI.Application.Services;
 
 namespace TodoTests.Tests.User
 {

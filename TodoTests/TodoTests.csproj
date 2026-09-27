@@ -21,7 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TodoAPI.csproj" />
+    <ProjectReference Include="..\TodoAPI.Application\TodoAPI.Application.csproj" />
+    <ProjectReference Include="..\TodoAPI.Domain\TodoAPI.Domain.csproj" />
+    <ProjectReference Include="..\TodoAPI.Infrastructure\TodoAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\TodoAPI.WebAPI\TodoAPI.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>

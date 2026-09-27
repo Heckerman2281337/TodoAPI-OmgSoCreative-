@@ -1,7 +1,6 @@
 ﻿using FluentValidation.TestHelper;
-using TodoAPI.DTOs;
-using TodoAPI.Entities;
-using TodoAPI.Validators;
+using TodoAPI.Application.DTOs;
+using TodoAPI.Application.Validators;
 
 namespace TodoTests.Tasks
 {

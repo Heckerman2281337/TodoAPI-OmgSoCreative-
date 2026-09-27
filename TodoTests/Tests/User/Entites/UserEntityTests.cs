@@ -1,4 +1,4 @@
-﻿using TodoAPI.Entities;
+﻿using TodoAPI.Domain.Entities;
 
 namespace TodoTests.User
 {
