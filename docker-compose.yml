@@ -10,7 +10,7 @@ services:
         depends_on:
             - db
         environment:
-            ConnectionStrings__DefaultConnection: ${DB_CONNECTION}
+            ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=ToDoDB;Username=postgres;Password=${DB_PASSWORD}
             Jwt__Key: ${JWT_KEY}
             Jwt__Issuer: ${JWT_ISSUER}
             Jwt__Audience: ${JWT_AUDIENCE}
