@@ -1,5 +1,6 @@
 ﻿using Xunit;
-using TodoAPI.Entities;
+using TodoAPI.Domain.Entities;
+using TodoAPI.Domain.Enums;
 
 namespace TodoTests.Tasks
 {

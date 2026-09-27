@@ -1,11 +1,10 @@
 ﻿using FluentValidation;
 using Moq;
-using TodoAPI;
-using TodoAPI.DTOs;
-using TodoAPI.Entities;
-using TodoAPI.QueryParams;
-using TodoAPI.Repo.TaskRepository;
-using TodoAPI.Services.TaskServices;
+using TodoAPI.Application.DTOs;
+using TodoAPI.Domain.Entities;
+using TodoAPI.Application.QueryParams;
+using TodoAPI.Application.Repo;
+using TodoAPI.Application.Services;
 using Microsoft.Extensions.Logging;
 using FluentValidation.Results;
 

@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TodoAPI.Domain.Entities;
+
+namespace TodoAPI.Infrastructure.Repo
+{
+    public class TaskConfig : IEntityTypeConfiguration<TaskEntity>
+    {
+        public void Configure(EntityTypeBuilder<TaskEntity> builder)
+        {
+            builder.HasKey(t => t.Id);
+            builder.Property(t => t.Title)
+                .IsRequired()
+                .HasMaxLength(140);
+
+            builder.HasOne(u => u.User)
+                .WithMany(t => t.Tasks)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder.Ignore(t => t.Exparation);
+        }
+    }
+}
