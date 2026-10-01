@@ -6,6 +6,7 @@ namespace TodoAPI.Application.Repo
     {
         public Task CreateAsync(RefreshTokenEntity refreshToken, CancellationToken cancellationToken = default);
         public Task DeleteAsync(RefreshTokenEntity refreshToken, CancellationToken cancellationToken = default);
+        public Task<bool> IsTokenAffected(Guid tokenId, CancellationToken cancellationToken);
         public Task<RefreshTokenEntity?> GetByTokenAsync(string refreshToken, CancellationToken cancellationToken = default);
         public Task RevokeTokenAsync(RefreshTokenEntity refreshToken, CancellationToken cancellation = default);
         public Task DeleteExpiredAndRevokedAsync(CancellationToken cancellationToken = default);
