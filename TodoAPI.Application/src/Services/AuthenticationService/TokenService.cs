@@ -59,7 +59,8 @@ namespace TodoAPI.Application.Services
             if (userEntity is null)
                 throw new ArgumentException("Такого пользователя не существует");
 
-            await RevokeAsync(refreshToken, cancellationToken);
+            if (!await tokenRepo.IsTokenAffected(refreshToken.Id, cancellationToken))
+                throw new UnauthorizedAccessException("Токен использован");
 
             var newRefreshToken = await GenerateRefreshTokenAsync(userEntity);
             var newAccessToken = GenerateAccessJWT(userEntity);

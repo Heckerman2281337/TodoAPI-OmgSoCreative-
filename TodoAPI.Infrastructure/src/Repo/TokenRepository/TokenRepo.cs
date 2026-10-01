@@ -30,6 +30,16 @@ namespace TodoAPI.Infrastructure.Repo
                 .ExecuteDeleteAsync(cancellationToken);
         }
 
+        public async Task<bool> IsTokenAffected(Guid tokenId, CancellationToken cancellationToken)
+        {
+            var affected = await _context.Tokens.Where(t => t.Id == tokenId && !t.IsRevoked)
+                                          .ExecuteUpdateAsync(s => s.SetProperty
+                                          (t => t.IsRevoked, true), cancellationToken);
+            
+            if (affected == 0) return false;
+            return true;
+        }
+
         public async Task<RefreshTokenEntity?> GetByTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
         {
             return await _context.Tokens.FirstOrDefaultAsync(t => t.TokenHash == refreshToken, cancellationToken);
