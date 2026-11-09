@@ -4,6 +4,8 @@ using TodoAPI.Domain.Entities;
 using TodoAPI.Application.DTOs;
 using TodoAPI.Application.Repo;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 
 namespace TodoAPI.Application.Services
 {
@@ -11,6 +13,7 @@ namespace TodoAPI.Application.Services
         (ITaskRepo taskRepository,
         IValidator<TaskDTO> taskValidator,
         IValidator<UpdateTaskDTO> updatedTaskValidator,
+        IDistributedCache cache,
         ILogger<TaskService> logger) : ITaskService
     {
 
@@ -19,7 +22,6 @@ namespace TodoAPI.Application.Services
             ,TaskSortParams taskSort, TaskPaginationParams taskPagination
             ,CancellationToken cancellationToken = default)
         {
-            //TODO - make sure its users tasks
             var result = await taskRepository.GetAllAsync(userId, taskFilter, taskSort, taskPagination, cancellationToken);
             var taskResponses = result.Data.Select(task => new TaskResponseDTO(task)).ToArray();
             logger.LogInformation("Выдача всех задач для пользователя: {UserId}", userId);
@@ -36,11 +38,28 @@ namespace TodoAPI.Application.Services
                 userId, dto.Deadline, dto.Category, dto.Priority);
             
             await taskRepository.CreateAsync(task, cancellationToken);
+
             logger.LogInformation("Задача {TaskId} была успешно создана", task.Id);
         }
 
         public async Task<TaskResponseDTO> GetByIdAsync(Guid id, Guid userId, CancellationToken cancellationToken = default)
         {
+            string cacheKey = $"tasks:{id}";
+            
+            var cachedData = await cache.GetStringAsync(cacheKey, cancellationToken);
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                var cachedDto = JsonSerializer.Deserialize<TaskResponseDTO>(cachedData);
+                
+                if (cachedDto is null || cachedDto.userId != userId)
+                {
+                    logger.LogError("Пользователь {UserId} запросил задачу из кэша, которая ему не принадлежит", userId);
+                    throw new KeyNotFoundException("Задача не найдена.");
+                }
+
+                return cachedDto;
+            }
+
             var taskEntity = await taskRepository.GetByIdAsync(id, cancellationToken);
             if (taskEntity is null)
             {
@@ -55,7 +74,17 @@ namespace TodoAPI.Application.Services
             }
 
             var taskResponse = new TaskResponseDTO(taskEntity);
-            
+
+            await cache.SetStringAsync(
+                cacheKey,
+                JsonSerializer.Serialize(taskResponse),
+                new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5),
+                    SlidingExpiration = TimeSpan.FromMinutes(2)
+                },
+                cancellationToken);
+
             logger.LogInformation("Задача {TaskId} возвращается пользователю {UserId}", taskEntity.Id, userId);
             return taskResponse;
         }
@@ -78,6 +107,10 @@ namespace TodoAPI.Application.Services
 
             
             await taskRepository.DeleteAsync(task, cancellationToken);
+
+            string cachedKey = $"tasks:{id}";
+            await cache.RemoveAsync(cachedKey, cancellationToken);
+
             logger.LogInformation("Задача {TaskId} успешно удалена у пользователя {UserId}", task.Id, userId);
         }
 
@@ -106,6 +139,18 @@ namespace TodoAPI.Application.Services
             await taskRepository.UpdateAsync(taskEntity, cancellationToken);
             logger.LogInformation("Пользователь {UserId} обновил задачу {TaskId}", userId, taskEntity.Id);
             var taskResponse = new TaskResponseDTO(taskEntity);
+
+            string cachedKey = $"tasks:{id}";
+
+            await cache.SetStringAsync(
+                cachedKey,
+                JsonSerializer.Serialize(taskResponse),
+                new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5),
+                    SlidingExpiration = TimeSpan.FromMinutes(2)
+                },
+                cancellationToken);
 
             return taskResponse;
         }

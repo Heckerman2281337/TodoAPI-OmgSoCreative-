@@ -8,22 +8,60 @@ services:
             - "8080:8080"
         container_name: to_do_web_api
         depends_on:
-            - db
+            db:
+                condition: service_healthy
+            cache:
+                condition: service_healthy
         environment:
-            ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=ToDoDB;Username=postgres;Password=${DB_PASSWORD}
+            ConnectionStrings__DefaultConnection: ${DB_CONNECTION}
+            ConnectionStrings__RedisConnection: ${REDIS_CONNECTION}
             Jwt__Key: ${JWT_KEY}
             Jwt__Issuer: ${JWT_ISSUER}
             Jwt__Audience: ${JWT_AUDIENCE}
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.50'
+                    memory: 512M
+        restart: unless-stopped
     db:
         image: postgres:17
         ports:
             - "5432:5432"
         environment:
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: 12345
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ToDoDB
         volumes:
             - db_data:/var/lib/postgresql/data
         container_name: db_postgresql_container
-        
+        deploy:
+            resources:
+                limits:
+                    memory: 1024M
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres -d ToDoDB"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+        restart: unless-stopped
+    cache:
+        image: redis/redis-stack:latest
+        ports:
+            - 6379:6379
+            - 8001:8001
+        environment:
+            REDIS_ARGS: "--requirepass ${REDIS_PASSWORD}"
+            REDISINSIGHT_PASSWORD: ${REDIS_PASSWORD}
+        volumes:
+            - cache_data:/data
+        container_name: cache_redis_container
+        healthcheck:
+            test: ["CMD", "redis-cli","-a", "${REDIS_PASSWORD}", "ping"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+        restart: unless-stopped
 volumes:
     db_data:    
+    cache_data:

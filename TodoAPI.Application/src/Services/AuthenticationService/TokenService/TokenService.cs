@@ -7,11 +7,14 @@ using TodoAPI.Domain.Entities;
 using TodoAPI.Application.Repo;
 using TodoAPI.Application.DTOs;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Caching.Distributed;
+using TodoAPI.Application.src.DTOs.Auth;
+using System.Text.Json;
 
 namespace TodoAPI.Application.Services
 {
     public class TokenService(IConfiguration configuration, ITokenRepo tokenRepo, 
-        IUserRepo userRepo) : ITokenService
+        IUserRepo userRepo, IDistributedCache cache) : ITokenService
     {
 
         public async Task<string> GenerateRefreshTokenAsync(UserEntity entity, CancellationToken cancellationToken = default)
@@ -21,6 +24,19 @@ namespace TodoAPI.Application.Services
             var rawToken = Convert.ToBase64String(bytes);
             var refreshToken = new RefreshTokenEntity(entity.UserId, HashRefreshToken(rawToken));
             await tokenRepo.CreateAsync(refreshToken, cancellationToken);
+
+            var cachedToken = new CachedRefreshToken(
+                refreshToken.Id,
+                refreshToken.UserId,
+                refreshToken.IsRevoked,
+                refreshToken.ExpiresAt);
+            string cachedKey = $"tokens:{refreshToken.TokenHash}";
+            await cache.SetStringAsync(cachedKey,
+                JsonSerializer.Serialize(cachedToken),
+                new DistributedCacheEntryOptions { 
+                    AbsoluteExpirationRelativeToNow = refreshToken.ExpiresAt - DateTime.UtcNow
+                },
+                cancellationToken);
 
             return rawToken;
         }
@@ -62,6 +78,8 @@ namespace TodoAPI.Application.Services
             if (!await tokenRepo.IsTokenAffected(refreshToken.Id, cancellationToken))
                 throw new UnauthorizedAccessException("Токен использован");
 
+           await RevokeAsync(refreshToken);
+
             var newRefreshToken = await GenerateRefreshTokenAsync(userEntity);
             var newAccessToken = GenerateAccessJWT(userEntity);
 
@@ -72,6 +90,20 @@ namespace TodoAPI.Application.Services
         {
             refreshToken.RevokeToken();
             await tokenRepo.RevokeTokenAsync(refreshToken, cancellationToken);
+
+            var cachedKey = $"tokens:{refreshToken.TokenHash}";
+            var cachedToken = new CachedRefreshToken(
+                refreshToken.Id,
+                refreshToken.UserId,
+                true,//revoked
+                refreshToken.ExpiresAt);
+            await cache.SetStringAsync(cachedKey,
+                JsonSerializer.Serialize(cachedToken),
+                new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = refreshToken.ExpiresAt - DateTime.UtcNow
+                },
+                cancellationToken);
         }
         public async Task DeleteAsync(string rawToken, CancellationToken cancellationToken = default)
         {
@@ -79,16 +111,44 @@ namespace TodoAPI.Application.Services
             var tokenEntity = await tokenRepo.GetByTokenAsync(hashedToken, cancellationToken);
             if (tokenEntity is null)
                 throw new UnauthorizedAccessException("Refresh токен не найден");
-            
+            await cache.RemoveAsync($"tokens:{hashedToken}", cancellationToken);
             await tokenRepo.DeleteAsync(tokenEntity, cancellationToken);
         }
         public async Task<RefreshTokenEntity> GetTokenAsync(string rawToken, CancellationToken cancellationToken = default)
         {
             var hashedToken = HashRefreshToken(rawToken);
+
+            var cachedKey = $"tokens:{hashedToken}";
+            var cachedData = await cache.GetStringAsync(cachedKey, cancellationToken);
+
+            if (cachedData is not null)
+            {
+                var cached = JsonSerializer.Deserialize<CachedRefreshToken>(cachedData);
+                if (cached is null)
+                    throw new UnauthorizedAccessException("Refresh токен не найден");
+
+                var tokenEntity = new RefreshTokenEntity(cached.UserId, hashedToken);
+                tokenEntity.RestoreState(cached.Id,cached.ExpiresAt, cached.IsRevoked);
+                return tokenEntity;
+            }
+            
             var refreshToken = await tokenRepo.GetByTokenAsync(hashedToken, cancellationToken);
 
             if (refreshToken is null)
                 throw new UnauthorizedAccessException("Refresh токен не найден");
+
+           var cachedToken = new CachedRefreshToken(
+                refreshToken.Id,
+                refreshToken.UserId,
+                refreshToken.IsRevoked,
+                refreshToken.ExpiresAt);
+            await cache.SetStringAsync(cachedKey,
+                JsonSerializer.Serialize(cachedToken),
+                new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = refreshToken.ExpiresAt - DateTime.UtcNow
+                },
+                cancellationToken);
 
             return refreshToken;
         }

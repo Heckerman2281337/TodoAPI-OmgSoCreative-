@@ -27,5 +27,15 @@ namespace TodoAPI.Domain.Entities
         {
             IsRevoked = true;
         }
+
+        public void RestoreState(Guid id, DateTime expiresAt, bool isRevoked)
+        {
+            Id = id;
+            ExpiresAt = expiresAt;
+            if (isRevoked)
+            {
+                IsRevoked = true;
+            }
+        }
     }
 }
