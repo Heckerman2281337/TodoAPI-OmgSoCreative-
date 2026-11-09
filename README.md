@@ -10,6 +10,7 @@ Pet project that I use to practice ASP.NET dev. Project started as simple CRUD A
 - Ef core
 ### DB
 - PostgreSQL
+- Redis (Redis Stack)
 ### Auth
 - JWT (refresh + access)
 - Bcrpyt
@@ -33,10 +34,11 @@ https://todoapi-omgsocreative-production.up.railway.app/swagger
 2. cd TodoAPI-OmgSoCreative-
 #### Option 1: Run everything with docker
 3. docker-compose up --build
-4. Swagger: http://localhost:8080/swagger
+4. - Swagger: http://localhost:8080/swagger
+   - Redis Insight (Web UI): http://localhost:8001
 #### Option 2: Run API locally
-3. Start only postgres
-4. docker-compose up -d db
+3. Start only postgres and redis
+4. docker-compose up -d db cache
 5. dotnet watch run
 ## API Endpoints
 
