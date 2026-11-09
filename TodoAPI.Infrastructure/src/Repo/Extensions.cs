@@ -14,12 +14,19 @@ namespace TodoAPI.Infrastructure
             serviceCollection.AddScoped<IUserRepo, UserRepo>();
             serviceCollection.AddScoped<ITokenRepo, TokenRepo>();
 
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-
+            var connectionString = configuration["DB_CONNECTION"];
             serviceCollection.AddDbContext<TodoDbContext>(x =>
             {
                 x.UseNpgsql(connectionString);
             });
+
+            var cacheConnectionString = configuration["REDIS_CONNECTION"];
+            serviceCollection.AddStackExchangeRedisCache(op =>
+            {
+                op.Configuration = cacheConnectionString;
+                op.InstanceName = "todo:";
+            });
+
             return serviceCollection;
         }
 

@@ -8,12 +8,12 @@ namespace TodoAPI.Application.DTOs
         DateTime CreatedAt, DateTime? Deadline,
         DateTime? Updated, bool? IsCompleted,
         TaskCategory? Category, TaskPriority? Priority,
-        TaskExparation? Exparation)
+        TaskExparation? Exparation, Guid userId)
     {
         public TaskResponseDTO(TaskEntity taskEntity) : this(
             taskEntity.Title, taskEntity.Description, taskEntity.Created,
             taskEntity.Deadline, taskEntity.Updated, taskEntity.IsCompleted,
-            taskEntity.Category, taskEntity.Priority, taskEntity.Exparation)
+            taskEntity.Category, taskEntity.Priority, taskEntity.Exparation, taskEntity.UserId)
         { }
     }
 }

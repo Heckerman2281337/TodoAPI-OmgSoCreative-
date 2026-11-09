@@ -1,5 +1,6 @@
 ﻿using TodoAPI.Domain.Entities;
 using TodoAPI.Application.DTOs;
+using TodoAPI.Application.src.DTOs.Auth;
 
 namespace TodoAPI.Application.Services
 {
