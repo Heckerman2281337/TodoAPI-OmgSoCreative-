@@ -27,6 +27,8 @@ namespace TodoAPI.Infrastructure
                 op.InstanceName = "todo:";
             });
 
+            serviceCollection.AddSingleton<ICacheService, RedisCacheService>();
+
             return serviceCollection;
         }
 
