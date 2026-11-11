@@ -1,6 +1,7 @@
 
 services:
     crud_webapi:
+        image: ${IMAGE_NAME:-crud_webapi}:${IMAGE_TAG:-local}
         build:
             context: .
             dockerfile: Dockerfile
@@ -13,8 +14,8 @@ services:
             cache:
                 condition: service_healthy
         environment:
-            ConnectionStrings__DefaultConnection: ${DB_CONNECTION}
-            ConnectionStrings__RedisConnection: ${REDIS_CONNECTION}
+            DB_CONNECTION: ${DB_CONNECTION}
+            REDIS_CONNECTION: ${REDIS_CONNECTION}
             Jwt__Key: ${JWT_KEY}
             Jwt__Issuer: ${JWT_ISSUER}
             Jwt__Audience: ${JWT_AUDIENCE}
