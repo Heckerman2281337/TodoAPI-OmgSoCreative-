@@ -17,9 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_root", "_root", "{02EA681E
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.env = .env
+		.env.ci = .env.ci
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
+		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
 	EndProjectSection
 EndProject
 Global
