@@ -23,6 +23,8 @@ Pet project that I use to practice ASP.NET dev. Project started as simple CRUD A
 - FluentValidation
 ### Infrastructure
 - Docker/Docker Compose
+### CI/CD
+- Github Actions
 ### Documentation
 - Swagger UI
 
