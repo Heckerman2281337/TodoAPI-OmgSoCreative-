@@ -7,9 +7,7 @@ using TodoAPI.Domain.Entities;
 using TodoAPI.Application.Repo;
 using TodoAPI.Application.DTOs;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Caching.Distributed;
 using TodoAPI.Application.src.DTOs.Auth;
-using System.Text.Json;
 
 namespace TodoAPI.Application.Services
 {
