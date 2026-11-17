@@ -110,13 +110,12 @@ jobs:
   
   prod-stage:
     needs: publish-stage
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
 
     - name: Run container
       run: |
-        docker run -d \
-        --name todoapi \
-        -p 8080:8080 \
+        docker compose pull \
+        docker compose up -d \
         ghcr.io/heckerman2281337/todoapi-omgsocreative:latest
