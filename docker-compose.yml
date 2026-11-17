@@ -27,8 +27,6 @@ services:
         restart: unless-stopped
     db:
         image: postgres:17
-        ports:
-            - "5432:5432"
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -48,9 +46,6 @@ services:
         restart: unless-stopped
     cache:
         image: redis/redis-stack:latest
-        ports:
-            - 6379:6379
-            - 8001:8001
         environment:
             REDIS_ARGS: "--requirepass ${REDIS_PASSWORD}"
             REDISINSIGHT_PASSWORD: ${REDIS_PASSWORD}
