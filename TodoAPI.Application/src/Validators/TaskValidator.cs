@@ -5,7 +5,7 @@ namespace TodoAPI.Application.Validators
 {
     public class TaskValidator : AbstractValidator<TaskDTO>
     {
-        public TaskValidator()
+        public TaskValidator() 
         {
             RuleFor(task => task.Title)
                 .NotEmpty().WithMessage("У задачи должно быть название")

@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "8080:8080"
+            - "8080:8080" # Remove if you have ngnix or any other entry point
         container_name: to_do_web_api
         depends_on:
             db:
@@ -52,6 +52,8 @@ services:
         volumes:
             - cache_data:/data
         container_name: cache_redis_container
+        ports:
+            - "8001:8001" # Insight
         healthcheck:
             test: ["CMD", "redis-cli","-a", "${REDIS_PASSWORD}", "ping"]
             interval: 5s

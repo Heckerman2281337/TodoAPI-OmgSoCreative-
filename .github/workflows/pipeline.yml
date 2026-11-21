@@ -10,9 +10,6 @@ on:
 permissions:
     contents: read
 
-env:
-   IMAGE_NAME: ghcr.io/heckerman2281337/todoapi-omgsocreative
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -23,7 +20,7 @@ jobs:
         - name: Setup .NET 
           uses: actions/setup-dotnet@v4
           with: 
-            dotnet-version: '9.0.x'
+            dotnet-version: '10.0.x'
               
         - name: Build Stage
           run: dotnet build --configuration Release
@@ -108,14 +105,14 @@ jobs:
             cache-from: type=gha
             cache-to: type=gha,mode=max
   
-  prod-stage:
-    needs: publish-stage
-    runs-on: self-hosted
+  #prod-stage:
+   # needs: publish-stage
+   # runs-on: self-hosted
 
-    steps:
-
-    - name: Run container
-      run: |
-        docker compose pull \
-        docker compose up -d \
-        ghcr.io/heckerman2281337/todoapi-omgsocreative:latest
+   # steps:
+ # TODO: Deploy on homeserver
+    #- name: Run container
+     # run: |
+      #  docker compose pull \
+       # docker compose up -d \
+        #ghcr.io/heckerman2281337/todoapi-omgsocreative:latest
