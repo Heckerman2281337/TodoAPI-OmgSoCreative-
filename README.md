@@ -28,9 +28,6 @@ Pet project that I use to practice ASP.NET dev. Project started as simple CRUD A
 ### Documentation
 - Swagger UI
 
-## Live Demo
-https://todoapi-omgsocreative-production.up.railway.app/swagger
-
 ## How to run
 1. git clone https://github.com/Heckerman2281337/TodoAPI-OmgSoCreative-.git
 2. cd TodoAPI-OmgSoCreative-
