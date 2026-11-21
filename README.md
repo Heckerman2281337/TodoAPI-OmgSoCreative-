@@ -1,11 +1,11 @@
-# !!CURRENTLY NOT DEPLOYED CAUSE IM BROKE!!
+# !!CURRENTLY NOT DEPLOYED. IM TRYING TO CONFIGURE HOME SERVER!!
 ## TodoAPI
 Pet project that I use to practice ASP.NET dev. Project started as simple CRUD API. Project evolving with authentication, testing, Docker, etc.
 
 ## Stack
 ### Backend
 - C#
-- .NET 9
+- .NET 10
 - ASP.NET core Web API
 - Ef core
 ### DB
