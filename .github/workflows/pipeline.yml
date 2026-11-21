@@ -10,6 +10,9 @@ on:
 permissions:
     contents: read
 
+env:
+    IMAGE_NAME: ghcr.io/heckerman2281337/todoapi-omgsocreative
+    IMAGE_TAG: latest
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -44,7 +47,7 @@ jobs:
             context: .
             file: ./Dockerfile
             load: true
-            tags: ${{ env.IMAGE_NAME }}:latest
+            tags: ${{ env.IMAGE_NAME }}:${{env.IMAGE_TAG}}
             cache-from: type=gha
             cache-to: type=gha,mode=max
         
